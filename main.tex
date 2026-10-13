@@ -58,7 +58,8 @@ advantages:
     \item scintillation / cherenkov discrimination
 \end{itemize}
 
-\section{DSNB detection}
+\newpage
+\section{DSNB Signal and Detection}
 \subsection{DSNB flux estimation}
 % Diffuse supernova neutrino background is detectable in Super-Kamiokande
 
@@ -101,7 +102,7 @@ Finally, the DSNB flux is calculated as figure \ref{fig:dsnb-flux}
     \label{fig:dsnb-flux}
 \end{figure}
 
-\subsection{DSNB interactions in detectors}
+\subsection{DSNB interactions and expected event rate}
 The neutrino interaction cross section in the detector is calculated:
 \[\]
 
@@ -119,7 +120,111 @@ So, we get the DSNB-induced positron spectrum in figure \ref{fig:dsnb-rate}
 
 The applied IBD rate induced by DSNB is $2.2 \pm 0.7$, given the neutrino temperature $\SI{6}{\MeV}$ and exposure $\SI{20}{\kilo\tonne year}$
 
-\section{Background}
+\newpage
+\section{Simulation and Event Reconstruction}
+\subsection{DSNB and background simulation}
+\subsection{event reconstruction}
+\subsubsection{waveform fitting}
+\subsubsection{vertex reconstruction}
+
+
+A reconstruction method developed for JNE is applied in this study \cite{luo_reconstruction_2023}. The likelihood function $f(n_i^{obs}, t_{ij}|\vec{\theta})$ shows the probability of observed PE numbers in the i-th PMT $n_i^{obs}$ and their time distributions $t_{ij}$, given vertex $\vec{\theta}$, including the reconstructed energy $E$, position $\{x, y, z\}$, event time $t_{event}$ and direction $\vec{d}_{fit}$.
+\begin{equation}
+    f(n_i^{obs}, t_{ij} | \vec{\theta})=\prod_i^{N_{PMT}} P_i^C \prod_j^{n_i^{obs}} P_{ij}^T
+    \label{equ:likelihood}
+\end{equation}
+
+, where
+
+\begin{equation}
+    P_i^C = f_{\mathrm{Poisson}}(n_i^{obs}; n_i^{exp})
+    \label{equ:likelihood-count}
+\end{equation}
+\begin{equation}
+    P_{ij}^T = \sum{\frac{n_i^{type}}{n_i^{exp}} f^{type} (t_{ij}^{res})}
+    \label{equ:likelihood-time}
+\end{equation}
+
+The PE number is estimated as: $n_i^{exp} (\vec{\theta}) = \sum{n_i^{type}} (\vec{\theta})$. The time residual is calculated as: $t_{ij}^{res} = t_{ij} - t_{event} - TOF(\vec{\theta}) - t_{shift}$. And its distributions $f^{type}(t)$ are calibrated from simulation.
+
+\subsubsection{CPE and SPE reconstruction}
+% 本研究采用的
+
+% CPE 和 SPE 的重建，主要由 PE 的时间残差 $t^{res}$ 决定，同时也受到电子模型预测的影响，总体上是模型无关的。也就是说，该方法重建的闪烁光 / 切伦科夫光 PE 比例可以反应不同粒子切伦科夫光光产额的不同。
+
+% 具体计算方法：对于 PMT i 上的 PE j，先基于时间；再基于电子模型，计算 PMT i 上各类型（闪烁光 / 切伦科夫光 * 直入射 / 非直入射 + 暗噪声）的 PE 期望数 $\nu_i^{type} (\vec{\theta})$
+
+在本部分，我们讨论如何确定某个特定 PMT 上的某个特定 PE 是闪烁光 / 切伦科夫光 PE，我们计算它是闪烁光 / 切伦科夫光的概率 $P_c, P_s$。我们已知 PE 的 hit 时间 $t^{hit}$
+
+在计算前，我们已有拟合结果：
+\begin{equation}
+    \vec{\theta} = (E, t_0, \vec{x}, \vec{d})
+\end{equation}
+
+由此可以得到 PMT 上的闪烁光 / 切伦科夫光 PE 数预期：
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        & n_c = n_c^{pred}(\vec{\theta}, e^- model) \\
+        & n_s = n_s^{pred}(\vec{\theta}, e^- model)
+    \end{aligned}
+    \right.
+\end{equation}
+
+$n_c, n_s$ 在顶点确定之后，就能由电子模型计算出唯一值
+
+另外我们可以计算 PE 的光子时间，以及它们满足的概率分布：
+\begin{equation}
+    t^{photon} = t^{hit} - t_0 - TOF(\vec{\theta}) - TT
+\end{equation}
+
+\begin{equation}
+    \left\{
+    \begin{aligned}
+        & f_c = P(t = t^{photon} | Cherenkov, LiCl scintillator) \\
+        & f_s = P(t = t^{photon} | Scintillation, LiCl scintillator)
+    \end{aligned}
+    \right.
+\end{equation}
+
+概率分布由液闪性质决定，且闪烁光与切伦科夫光的概率分布不同
+
+在当前的算法中，一个 PE 是切伦科夫 PE 的概率计算为：
+
+\begin{equation}
+    \begin{aligned}
+        P_c & = \frac{n_c f_c}{n_c f_c + n_s f_s} \\
+        N_c & = \sum_{All PE} P_c
+    \end{aligned}
+    \label{equ:nc-recon}
+\end{equation}
+
+可以观察到
+
+\begin{equation}
+    \begin{aligned}
+        P_c & = \frac{n_c f_c}{n_c f_c + n_s f_s} \\
+        & = \frac{\frac{n_c}{n_c + n_s} f_c}{\frac{n_c}{n_c + n_s} f_c + \frac{n_c}{n_c + n_s} f_s} \\
+        & = \frac{P(c) P(t|c)}{P(c) P(t|c) + P(s) P(t|s)} \\
+    \end{aligned}
+\end{equation}
+
+
+
+可见，所求为已知 PE 光子时间的后验概率 $P(c|t)$，而这里的先验概率
+\begin{equation}
+    P(c) = \frac{n_c}{n_c + n_s}
+\end{equation}
+
+是电子模型下，没有时间信息时，特定 PMT 中一个 PE 是切伦科夫 PE 的概率。在我们不知道粒子种类时，没有这个先验概率，所以这里确实应该修改。
+
+对于不知种类的粒子事例，一个 PE 是切伦科夫 PE 的概率为：
+\begin{equation}
+    P_c = \frac{f_c}{f_c + f_s}
+\end{equation}
+
+\newpage
+\section{Atmospheric-neutrino Background}
 Background:
 \begin{itemize}
     \item cosmic ray muons
@@ -184,173 +289,7 @@ The integrated event rates are shown in table \ref{tab:atmos-rate}
     \label{tab:atmos-rate}
 \end{table}
 
-\subsection{Atmos neutrino details}
-
-\section{Simulation and Event Reconstruction}
-\subsection{DSNB and background simulation}
-\subsection{event reconstruction}
-\subsubsection{waveform fitting}
-\subsubsection{vertex reconstruction}
-
-
-A reconstruction method developed for JNE is applied in this study \cite{luo_reconstruction_2023}. The likelihood function $f(n_i^{obs}, t_{ij}|\vec{\theta})$ shows the probability of observed PE numbers in the i-th PMT $n_i^{obs}$ and their time distributions $t_{ij}$, given vertex $\vec{\theta}$, including the reconstructed energy $E$, position $\{x, y, z\}$, event time $t_{event}$ and direction $\vec{d}_{fit}$.
-\begin{equation}
-    f(n_i^{obs}, t_{ij} | \vec{\theta})=\prod_i^{N_{PMT}} P_i^C \prod_j^{n_i^{obs}} P_{ij}^T
-    \label{equ:likelihood}
-\end{equation}
-
-, where
-
-\begin{equation}
-    P_i^C = f_{\mathrm{Poisson}}(n_i^{obs}; n_i^{exp})
-    \label{equ:likelihood-count}
-\end{equation}
-\begin{equation}
-    P_{ij}^T = \sum{\frac{n_i^{type}}{n_i^{exp}} f^{type} (t_{ij}^{res})}
-    \label{equ:likelihood-time}
-\end{equation}
-
-The PE number is estimated as: $n_i^{exp} (\vec{\theta}) = \sum{n_i^{type}} (\vec{\theta})$. The time residual is calculated as: $t_{ij}^{res} = t_{ij} - t_{event} - TOF(\vec{\theta}) - t_{shift}$. And its distributions $f^{type}(t)$ are calibrated from simulation.
-
-\section{Sensitivity study}
-
-\section{Selections}
-
-Selections are applied to suppress the atmospheric-neutrino-induced background. The time correlation between prompt and delayed events in the IBD is first employed to select the DSNB candidates. The difference of particle composition of prompt events (positrons in DSNB events and nucleons in atmospheric-neutrino-induced events) is the base of background removal. 
-
-\begin{enumerate}
-    \item coincidence
-    \item fitting goodness
-    \item cherenkov ring compliance
-    \item cherenkov photon emitting ability
-\end{enumerate}
-
-\subsection{Coincidence}
-
-\subsection{Fitting goodness}
-
-Fitting goodness is evaluated to quantify how a prompt event is similar to an electron event. All events in this study are reconstructed with the same electron model. So the better the model fits, the higher probability that the event is an electron event.
-
-The fitting goodness can be interpreted as the residuals between the observed and expected bin counts $n_i$ and $\nu_i$. The latter are predicted given the fitting result: $\nu_i = \nu_i(\vec{\theta})$.
-
-$\nu(i, t^{res} | \vec{\theta})$, the expected PE number in the i-th PMT and at time $t$, is to be determined. Based on the likelihood function (\ref{equ:likelihood-time}), it is obtained as follows:
-
-\begin{equation}
-  \nu(i, t^{res} | \vec{\theta}) = n_i^{exp} \sum{\frac{n_i^{type}}{n_i^{exp}} f^{type} (t^{res})}  
-\end{equation}
-
-$f^{type} (t)$ are normalized, guaranteeing that the integral of $\nu$ yields the expected PE number in the i-th PMT.
-
-\begin{equation}
-  \int{\nu(i, t^{res} | \vec{\theta}) \mathrm{d} t^{res}} = n_i^{exp}  
-\end{equation}
-
-For comparison purposes, the observed and expected PE numbers are binned. The sphere where PMTs are mounted is divided into 68 regions with a close area. Thus, each region covers a comparable number of PMTs. And the time window is divided into 80 bins, each with a width of \SI{2.5}{\nano\second}. We assume that $t_{k, center}$ is the center of time in the bin $(j, k)$. For the bin $(j, k)$, the bin count is calculated as the sum of the expected PE number in all PMTs in the region $j$:
-
-\begin{equation}
-    \nu_{j, k} = \sum_{\mathrm{PMT} i \in \mathrm{region} j} \nu(i, t_{k, center}|\vec{\theta})
-\end{equation}
-
-The observed PE number distribution $n_{j, k}$ and the expected one of a DSNB prompt event are shown in figure \ref{fig:dist-goodness}
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[observed PE number]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/DSNB-observed.png}
-    }
-    \subfigure[expected PE number]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/DSNB-expected.png}
-    }
-    \caption{The observed and expected PE number distribution in a DSNB prompt event.}
-    \label{fig:dist-goodness}
-\end{figure}
-
-The goodness $\chi^2$ is then calculated with $n, \nu$:
-
-\begin{equation}
-    \chi_P^2 = 2 \sum_{i=1}^N \left( n_i \log \frac{n_i}{\nu_i} + \nu_i - n_i \right)
-    \label{equ:chi2}
-\end{equation}
-
-Only when $n_i \neq 0$, the NDF is counted, and the $\chi_P^2$ is accumulated.
-
-With (\ref{equ:chi2}), the fitting goodness of each prompt event is obtained. For DSNB prompt events and atomspheric-neutrino prompt events, $\chi_P^2-E_k$ distributions are plotted and compared, as shown in figure \ref{fig:sel-goodness}. We remove events with prompt $(\chi_P^2, E_k)$ outside the red-line parallelogram.
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/sensitivity/sel-goodness-srn.png}
-    }
-    \subfigure[atmos]{
-        \includegraphics[width=0.45\linewidth]{figures/sensitivity/sel-goodness-o16nue-.png}
-    }
-    \caption{The joint distribution of goodness and energy. The red lines show the region retained.}
-    \label{fig:sel-goodness}
-\end{figure}
-
-\subsubsection{cherenkov ring compliance}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sel-cherenkov-ring.png}
-    \caption{The compliance shows how a hit pattern is similar to a cherenkov ring. The less value, the closer pattern.}
-    \label{fig:sel-ring}
-\end{figure}
-
-\subsection{cherenkov photon emitting ability}
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sel-csr.png}
-    \caption{The Cherenkov photon number compared with scintillation one. The more an event is like an electron event, the bigger the relative Cherenkov photon number is.}
-    \label{fig:sel-csr}
-\end{figure}
-
-\subsection{selection efficiency}
-
-\begin{table}[!htb]
-    \caption{Event rates after selections}
-    \begin{tabular}{rrrrr}
-        \hline
-         & DSNB & Atmos NC & Atmos $\bar{\nu}_e$ CC & Atmos $\bar{\nu}_{\mu} / \nu_{\mu}$ CC \\
-        \hline
-        Before cut & & & & \\
-        Coincidence & & & & \\
-        Goodness & & & & \\
-        Cut-2 & & & & \\
-        Cut-3 & & & & \\
-        \hline
-    \end{tabular}
-\end{table}
-
-After all the cuts are applied, the DSNB even rate remains $1.68 (\SI{20}{\kilo\tonne year})^{-1}$, the atmospheric neutrino event rate decreases to $0.0212 (\SI{20}{\kilo\tonne year})^{-1}$
-
-\section{Sensitivity study}
-\[P_s = \sum_{i=a}^b \mathrm{Poisson(i, \mu_{bkg})}\]
-
-where $b$ is the nearest integer around $S + \mu_{bkg}$, and $a$ is determined by $b$, both of which are on the same horizontal level in the probability distribution.
-\[\mathrm{Poisson} (a, \mu_{bkg}) \ge \mathrm{Poisson} (b, \mu_{bkg}) \]
-\[\mathrm{Poisson} (a - 1, \mu_{bkg}) \le \mathrm{Poisson} (b, \mu_{bkg}) \]
-
-\begin{figure}[!htb]
-    \centering
-    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sensitivity.png}
-    \caption{DSNB detection sensitivity with different types of detectors}
-    % Discovery potential for supernova relic neutrinos with slow liquid scintillator detectors
-    \label{fig:sensitivity}
-\end{figure}
-
-It can be found that in the LiCl water solution detector, the sensitivity of DSNB is the greatest, slightly greater than that in the Slow-LS detector.
-
-\section{Summary}
-
-\newpage
-\section{讨论遇到的问题}
-
-\subsection{大气中微子}
-
-\subsubsection{大气中微子末态分类整理}
-
+\subsection{Final-state classification}
 在 \ref{sec:atmos-rate} 中，我们计算了不同种类大气中微子的通量，以及它们和探测器内各种核素反应的事例率。现在我们将不同的末态分开统计
 
 反应可以分为 NC、CC 两类。NC 过程末态为中微子、核子和末态核，CC 过程末态包括带电轻子、核子和末态核
@@ -483,520 +422,8 @@ It can be found that in the LiCl water solution detector, the sensitivity of DSN
     }
     \caption{$\bar{\nu}_{\mu}$ 与各核素反应末态各成分比例}
 \end{figure}
-
 \newpage
-\subsection{重建}
-
-\subsubsection{CPE、SPE 重建问题}
-
-% 本研究采用的
-
-% CPE 和 SPE 的重建，主要由 PE 的时间残差 $t^{res}$ 决定，同时也受到电子模型预测的影响，总体上是模型无关的。也就是说，该方法重建的闪烁光 / 切伦科夫光 PE 比例可以反应不同粒子切伦科夫光光产额的不同。
-
-% 具体计算方法：对于 PMT i 上的 PE j，先基于时间；再基于电子模型，计算 PMT i 上各类型（闪烁光 / 切伦科夫光 * 直入射 / 非直入射 + 暗噪声）的 PE 期望数 $\nu_i^{type} (\vec{\theta})$
-
-在本部分，我们讨论如何确定某个特定 PMT 上的某个特定 PE 是闪烁光 / 切伦科夫光 PE，我们计算它是闪烁光 / 切伦科夫光的概率 $P_c, P_s$。我们已知 PE 的 hit 时间 $t^{hit}$
-
-在计算前，我们已有拟合结果：
-\begin{equation}
-    \vec{\theta} = (E, t_0, \vec{x}, \vec{d})
-\end{equation}
-
-由此可以得到 PMT 上的闪烁光 / 切伦科夫光 PE 数预期：
-\begin{equation}
-    \left\{
-    \begin{aligned}
-        & n_c = n_c^{pred}(\vec{\theta}, e^- model) \\
-        & n_s = n_s^{pred}(\vec{\theta}, e^- model)
-    \end{aligned}
-    \right.
-\end{equation}
-
-$n_c, n_s$ 在顶点确定之后，就能由电子模型计算出唯一值
-
-另外我们可以计算 PE 的光子时间，以及它们满足的概率分布：
-\begin{equation}
-    t^{photon} = t^{hit} - t_0 - TOF(\vec{\theta}) - TT
-\end{equation}
-
-\begin{equation}
-    \left\{
-    \begin{aligned}
-        & f_c = P(t = t^{photon} | Cherenkov, LiCl scintillator) \\
-        & f_s = P(t = t^{photon} | Scintillation, LiCl scintillator)
-    \end{aligned}
-    \right.
-\end{equation}
-
-概率分布由液闪性质决定，且闪烁光与切伦科夫光的概率分布不同
-
-在当前的算法中，一个 PE 是切伦科夫 PE 的概率计算为：
-
-\begin{equation}
-    \begin{aligned}
-        P_c & = \frac{n_c f_c}{n_c f_c + n_s f_s} \\
-        N_c & = \sum_{All PE} P_c
-    \end{aligned}
-    \label{equ:nc-recon}
-\end{equation}
-
-可以观察到
-
-\begin{equation}
-    \begin{aligned}
-        P_c & = \frac{n_c f_c}{n_c f_c + n_s f_s} \\
-        & = \frac{\frac{n_c}{n_c + n_s} f_c}{\frac{n_c}{n_c + n_s} f_c + \frac{n_c}{n_c + n_s} f_s} \\
-        & = \frac{P(c) P(t|c)}{P(c) P(t|c) + P(s) P(t|s)} \\
-    \end{aligned}
-\end{equation}
-
-
-
-可见，所求为已知 PE 光子时间的后验概率 $P(c|t)$，而这里的先验概率
-\begin{equation}
-    P(c) = \frac{n_c}{n_c + n_s}
-\end{equation}
-
-是电子模型下，没有时间信息时，特定 PMT 中一个 PE 是切伦科夫 PE 的概率。在我们不知道粒子种类时，没有这个先验概率，所以这里确实应该修改。
-
-对于不知种类的粒子事例，一个 PE 是切伦科夫 PE 的概率为：
-\begin{equation}
-    P_c = \frac{f_c}{f_c + f_s}
-\end{equation}
-
-\newpage
-\subsection{判选条件}
-
-\subsubsection{选择效率表格}
-
-\begin{table}[!htb]
-    \centering
-    \caption{判选条件和选择效率}
-    \begin{tabular}{cccc}
-        \hline
-        判选 & 条件 & \makecell{大气中微子 \\ 选择效率} & \makecell{DSNB \\ 选择效率} \\
-        \hline
-        模拟 & JSAP & $100.0\%$ & \\
-        重建 & 骆文泰 MLE & & \\
-        \hline
-        符合时间窗 & $t \le \SI{20}{\micro\second}$ & $104.5\%$ & \\
-        符合多重数 & $2$ & $27.9\%$ & $52.7\%$\\
-        \hline
-        快信号能量 & $10 \le E \le 30$ & $9.2\%$ & $49.3\%$ \\
-        \hline
-        慢信号能量 & \makecell{$0.06 \le E \le 0.94$ \\ $1.3 \le E \le 3.2$ \\ $6.8 \le E \le 10$} & $6.0\%$ & $36.4\%$\\
-        \hline
-        拟合优度 & $\chi_P^2 < 311 \frac{E_{prompt}}{MeV} + 1212$ & $4.7\%$ & $34.6\%$ \\
-        \hline
-        角分布 & $\chi_{chev}^2 < -0.025 \frac{E_{prompt}}{MeV} + 1.25$ & & \\
-        \hline
-        CS Ratio & $\frac{CPE}{0.3 SPE - 8} > 0.9$ & $0.05\%$ & $30.1\%$ \\
-    \end{tabular}
-\end{table}
-
-\subsubsection{慢信号能量阈值}
-
-取三个核素的中子俘获末态能量如下。本研究重建的能量分辨率：$\sigma_E / E = 20.6\% / \sqrt{E}$
-\begin{table}[!htb]
-    \centering
-    \caption{中子在不同核素上俘获的末态可见能量}
-    \begin{tabular}{ccc}
-        \hline
-        核素 & 能量 $E_{cap} [\si{\MeV}]$ & 分辨率 $\sigma_{cap} [\si{\MeV}]$ \\
-        \hline
-        \ce{{}^6Li} & 0.50 & 0.15 \\
-        \ce{{}^1H} & 2.23 & 0.31 \\
-        \ce{{}^{35}Cl} & 8.58 & 0.60 \\
-        \hline
-    \end{tabular}
-\end{table}
-
-取慢信号能量 cut：
-\begin{equation}
-    E_{cap} - 3\sigma_{cap} \le E_{delayed} \le E_{cap} + 3\sigma_{cap}
-\end{equation}
-
-\subsubsection{拟合优度自由度问题}
-
-拟合优度 $\chi_P^2$ 的计算：
-
-\begin{equation}
-    \chi_P^2 = 2 \sum_{i=1}^N \left( n_i \log \frac{n_i}{\nu_i} + \nu_i - n_i \right)
-\end{equation}
-
-根据 \cite{cowan_statistical_1998}，当 $n_i = 0$ 时，$n_i \log \frac{n_i}{\nu_i} = 0$，仍需计算 $\nu_i - n_i$，并加入到 $\chi_P^2$ 中
-
-自由度: $\mathrm{NDF} = N - m - 1$，其中 $N = 80 \times 68 = 5440$ 为总计格点个数， $m = 7$ 为重建的参数个数，包括能量、位置（3）、时间、方向（2）7维信息。故：
-
-下面展示了几个 goodness 的计算方法
-\begin{enumerate}
-    \item （错误）计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $80 \times 68$，$80$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{2.5}{\nano\second}$。$68$ 表示 6444 支 PMT，分入 68 区间。计算 $\chi^2_P$ 时 $n_{ij}=0$ 的 bin 不计入计算。
-      
-    \item 计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $80 \times 68$，$80$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{2.5}{\nano\second}$。$68$ 表示 6444 支 PMT，分入 68 区间。$\mathrm{NDF} = 80 \times 68 - 7 - 1 = 5432$
-    
-    \item 计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $200 \times 6444$，$200$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{1}{\nano\second}$。$6444$ 表示 6444 支 PMT。 $\mathrm{NDF} = 200 \times 6444 - 7 - 1 = 1288792$
-
-    \item 直接代入拟合结果，计算似然函数的负对数，$- \ln{f(n_i^{obs}, t_{ij} | \vec{\theta})}$，似然函数如式 (\ref{equ:likelihood})
-\end{enumerate}
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-80-68-old.png}
-    }
-    \subfigure[大气中微子 $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-80-68-old.png} 
-    }
-    \caption{$\mathrm{NDF} = 5432$ (错误的计数方法)}
-\end{figure}
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-80-68.png}
-    }
-    \subfigure[大气中微子 $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-80-68.png} 
-    }
-    \caption{$\mathrm{NDF} = 5432$}
-\end{figure}
- \begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-200-6444.png}
-    }
-    \subfigure[大气中微子 $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-200-6444.png} 
-    }
-    \caption{$\mathrm{NDF} = 1288792$}
-\end{figure}
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-likelihood.png}
-    }
-    \subfigure[大气中微子 $\chi_P^2$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-likelihood.png} 
-    }
-    \caption{似然函数的负对数}
-\end{figure}
-
-% \begin{figure}[!htb]
-%     \centering
-%     \subfigure[抛弃0的 80*68 bins: 不抛弃 0 的 80*68 bins]{
-%         \includegraphics[width=0.45\linewidth]{figures/selections/goodness/neo-80-68.png}
-%     }
-%     \subfigure[200*6444 bins: 80*68 bins]{
-%         \includegraphics[width=0.45\linewidth]{figures/selections/goodness/neo-200-6444.png} 
-%     }
-%     \caption{三种卡方计算方法对比：抛弃 0 的 80*68 bins、不抛弃 0 的 80*68 bins、不抛弃 0 的 200*6444 bins}
-% \end{figure}
-
-现在计算不同方法的选择效率 $\epsilon$，表示为：
-\begin{equation}
-    \epsilon_{goodness} = \frac{N_{goodness}}{N_{previos}}
-\end{equation}
-
-其中 $N_{previos}$ 表示通过之前的判选之后剩余的事例数（之前的判选包括快慢信号符合、快信号能量判选）；$N_{goodness}$ 表示通过之前的判选之后，进一步通过拟合优度判选的事例数。
-
-并计算相对信噪比
-\begin{equation}
-    \frac{\epsilon_{DSNB}}{\epsilon_{Atmos}}
-\end{equation}
-
-\begin{table}[!htb]
-    \centering
-    \caption{不同方法计算的拟合优度判选，其选择效率}
-    \begin{tabular}{cccc}
-        \hline
-        拟合优度方法 & DSNB & 大气中微子 & 相对信噪比 \\
-        \hline
-        \makecell{$\chi_P^2 (Wrong)$ \\ $\mathrm{NDF} = 5432$} & $96.1\%$ & $37.9\%$ & $2.54$ \\
-        \hline
-        \makecell{$\chi_P^2$ \\ $\mathrm{NDF} = 5432$} & $95.4\%$ & $35.1\%$ & $2.72$ \\
-        \hline
-        \makecell{$\chi_P^2$ \\ $\mathrm{NDF} = 1288792$} & $98.8\%$ & $32.1\%$ & $3.07$ \\
-        \hline
-        $-\ln{f(n_i^{obs}, t_{ij} | \vec{\theta})}$ & $99.1\%$ & $47.3\%$ & $2.09$ \\
-        \hline
-    \end{tabular}
-\end{table}
-
-故采用 $\chi_P^2 (\mathrm{NDF} = 200 \times 6444 - 7 - 1 = 1288792)$，作为拟合优度指标，信噪比相比此前的错误算法，提升约 $21\%$
-
-\subsubsection{拟合优度好与坏的两个事例对比}
-
-\textbf{好像这些图没办法看出差别，暂时没意义，或者想一想更好的表现形式}
-
-取一个 DNSB 事例，$\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$，另取一个大气中微子事例（$\ce{{}^{16}O} + \bar{\nu}_e$，NC 反应道，末态为多个中子）$\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$，对比两者逐 bin 的 $\chi_P^2$
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB $\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-chi2.png}
-    }
-    \subfigure[大气中微子 $\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-chi2.png} 
-    }
-    \caption{一个 DSNB 和大气中微子快信号逐 bin $\chi_P^2$ 对比}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[预期]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-v.png}
-    }
-    \subfigure[实测]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-n.png} 
-    }
-    \caption{DSNB $\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$}
-\end{figure}
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[预期]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-v.png}
-    }
-    \subfigure[实测]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-n.png} 
-    }
-    \caption{大气中微子 $\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$}
-\end{figure}
-
-\subsubsection{切伦科夫角分布判选}
-
-\paragraph{事例展示}
-
-为了直观展示不同 PMT 的位置关系和事例的切伦科夫环，将球面上的点 $(\theta, \phi)$ 投影到平面坐标 $(\tilde{\theta}, \tilde{\phi})$。本投影中的 $\theta$ 是 PMT 位置的球面极角，与下文用于判选的 PE 相对重建事例方向的夹角不同。投影如下：
-\begin{equation}
-    \begin{aligned}
-        & \tilde{\theta} = \frac{1.3}{\sqrt{1 + \sin \theta \cdot \sin \phi / 2}} \cos \theta \\
-        & \tilde{\phi} = \frac{-2}{\sqrt{1 + \sin \theta \cdot \sin \phi / 2}} \sin \theta \cdot \cos \frac{\phi}{2}
-    \end{aligned}
-\end{equation}
-
-对于球面上的 6444 支 PMT，我们展示每一支原来的 $(\theta, \phi)$，以及它们投影之后的参数 $(\tilde{\theta}, \tilde{\phi})$
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[$\theta: (\tilde{\theta}, \tilde{\phi})$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/xytheta.png}
-    }
-    \subfigure[$\phi: (\tilde{\theta}, \tilde{\phi})$]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/xyphi.png}
-    }
-    \caption{6444 支 PMT 的投影}
-\end{figure}
-
-判选思路：
-
-\begin{itemize}
-    \item 对于 DSNB 信号，快信号为正电子，其切伦科夫角分布通常接近正电子模板，在 $\cos\theta \approx 0.7$ 附近具有明显峰值。
-    \item 部分大气中微子本底包含多个方向不同的次级带电粒子，例如多个 $\gamma$ 产生的电子，或 $\mu^\pm$ 及伴随的强子活动，其切伦科夫角分布更分散，与正电子模板的偏离较大。产生正电子快信号的本底仍可能通过此判选。
-\end{itemize}
-
-根据两者切伦科夫光角分布的形状差异进行判选，以一维 $\cos\theta$ 分布作为环形态的指标。
-
-当前方法并不通过固定时间残差窗口对 PE 做硬分类，而是使用每个 PE 的切伦科夫后验概率作为权重。切伦科夫成分同时包含直入射和非直入射成分；一个 PE 可以按概率分配到切伦科夫光和闪烁光两类，例如贡献 $0.9$ CPE 和 $0.1$ SPE。
-
-图 \ref{fig:chev-pattern} 保留了基于时间残差的旧版快信号展示，用于直观说明环结构，不作为当前后验概率加权判选的结果图。
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/srn-15-dist.png}
-    }
-    \subfigure[大气中微子]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/atmos-9115-dist.png} 
-    }
-    \caption{DSNB 和大气中微子事例的旧版快信号环结构示意，颜色表示时间残差。当前判选采用切伦科夫后验概率加权，而非本图的时间残差展示方式。}
-    \label{fig:chev-pattern}
-\end{figure}
-
-对于快信号中的每个 PE，使用重建顶点 $\boldsymbol{x}_{\mathrm{reco}}$、重建事例单位方向 $\hat{\boldsymbol{d}}_{\mathrm{reco}}$ 和命中 PMT 的位置 $\boldsymbol{r}_{\mathrm{PMT},j}$，定义夹角 $\theta_j$：
-\begin{equation}
-    \cos\theta_j = \hat{\boldsymbol{d}}_{\mathrm{reco}} \cdot
-    \frac{\boldsymbol{r}_{\mathrm{PMT},j}-\boldsymbol{x}_{\mathrm{reco}}}
-    {|\boldsymbol{r}_{\mathrm{PMT},j}-\boldsymbol{x}_{\mathrm{reco}}|}.
-\end{equation}
-
-以 PE 的切伦科夫后验概率 $w_j^C$ 为权重填充 $\cos\theta$ 直方图，并归一化得到各 bin 的观测概率 $n_i$：
-\begin{equation}
-    n_i = \frac{\sum_{j\in i} w_j^C}{\sum_j w_j^C}, \qquad \sum_i n_i = 1.
-\end{equation}
-
-通过正电子模拟标定归一化的 $\cos\theta$ 预期分布 $\nu_i$，满足 $\sum_i\nu_i=1$。
-
-图 \ref{fig:chev-cos} 展示了当前方法得到的两个单事例角分布 $n_i$，和预期分布 $\nu_i$ 的对比，明显可以看到，DSNB 事例比大气中微子事例更契合预期分布。
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/srn-30-2.png}
-    }
-    \subfigure[大气中微子]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/atmos-61-2.png}
-    }
-    \caption{按切伦科夫后验概率加权并归一化的快信号 $\cos\theta$ 分布：DSNB 事例（左）和大气中微子事例（右），红线表示由正电子模拟标定的固定 $\cos\theta$ 模板 $\nu_i$。纵轴为各 bin 的概率。}
-    \label{fig:chev-cos}
-\end{figure}
-
-采用与拟合优度 cut 相同形式的统计量比较预期分布 $\nu_i$ 与观测分布 $n_i$。拟合优度比较二维直方图，这里比较一维归一化角分布：
-
-\begin{equation}
-    \chi_{\mathrm{chev}}^2 = 2\sum_i\left(n_i\ln\frac{n_i}{\nu_i}+\nu_i-n_i\right).
-\end{equation}
-
-由于两个分布均归一化到 1，此统计量衡量角分布形状与正电子模板的偏离，而不直接比较切伦科夫 PE 总量。$\chi_{\mathrm{chev}}^2$ 越小，角分布越接近正电子模板。对于 $n_i=0$ 的 bin，取 $n_i\ln(n_i/\nu_i)=0$。
-
-图 \ref{fig:chev-selection} 展示了信号与本底的 $\chi_{\mathrm{chev}}^2$ 随快信号重建能量的分布，以及当前采用的判选边界。
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/latest-indep-srn-chevangle-e.png}
-    }
-    \subfigure[大气中微子]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/latest-indep-all-chevangle-e.png}
-    }
-    \caption{独立考察角分布判选时，DSNB（左）和大气中微子（右）的 $\chi_{\mathrm{chev}}^2$--$E_{\mathrm{prompt}}$ 分布。红线为当前随能量变化的判选边界，保留红线下方的事例。}
-    \label{fig:chev-selection}
-\end{figure}
-
-保留满足下式的事例作为后续判选的候选：
-\begin{equation}
-    \chi_{\mathrm{chev}}^2 < -0.025\,\frac{E_{\mathrm{prompt}}}{\si{\MeV}}+1.25.
-\end{equation}
-该边界根据模拟中 DSNB 信号与大气中微子本底的分布目测选定，目标是尽量保留 DSNB 事例并减少保留的大气中微子事例，目前尚未进行定量的参数扫描优化。
-
-当前方法的局限与后续优化方向：
-
-\begin{itemize}
-    \item 当前使用固定正电子模板，尚未考虑角分布对能量和顶点位置的依赖。
-    \item 当前判选边界由目测确定，后续可通过参数扫描定量优化，并评估信号效率与本底保留率的权衡。
-\end{itemize}
-
-\subsubsection{大气中微子末态分类选择效率}
-
-\textbf{待整理}
-
-\subsection{判选条件条件重复问题}
-
-\subsubsection{要讨论的两个判选条件}
-
-\begin{table}[!htb]
-    \centering
-    \caption{要讨论的两个判选条件}
-    \begin{tabular}{ccc}
-        \hline
-        编号 & 名称 & 判选表达式 \\
-        \hline
-        cut-1 & 拟合优度 & $\chi_P^2 < 310 * \frac{E_{prompt}}{\si{\MeV}} + 1412$ \\
-        cut-3 & 切伦科夫光发光能力 & $\frac{CPE - (0.3 * SPE - 8)}{0.3 * SPE - 8} > -0.1$ \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\subsubsection{问题描述}
-
-我们基于电子模型重建事例顶点 $(E, t_0, \vec{x}, \vec{d})$，也基于电子模型重建 SPE、CPE \ref{equ:nc-recon}。
-
-假设有一我们不知道粒子类型的事例，只要这个事例的重建较好，我们就可以认为这个事例是类似电子的。因此这个事例的切伦科夫光、闪烁光的比例也应该和电子接近
-
-那么切伦科夫光发光能力的判选，是否和拟合优度的判选重复？
-
-\subsubsection{讨论}
-
-我们将两个判选条件做线性变换，重写为：
-
-\begin{equation}
-    \begin{aligned}
-        I_{\chi_P^2} & = -\chi_P^2 + 310 * \frac{E_{prompt}}{\si{\MeV}} + 1412 & > 0 \\
-        I_{chev} & = \frac{CPE - (0.3 * SPE - 8)}{0.3 * SPE - 8} + 0.1 & > 0
-    \end{aligned}
-\end{equation}
-
-$I_{\chi_P^2}$ 表示拟合的好坏，数值越大，拟合结果越好，事例越像电子
-
-$I_{chev}$ 表示事例中切伦科夫光的相对闪烁光有多少，数值越大，切伦科夫光越多
-
-下面我们将展示这两个指标的二维分布
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-srn-old.png}
-    }
-    \subfigure[大气中微子]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-atmos-old.png} 
-    }
-    \caption{横轴表示拟合好坏，横轴表示切伦科夫光相对多少，粉线标注判选条件，第一象限为通过}
-\end{figure}
-
-可以看到，和我们想的一样，拟合好的事例切伦科夫光都比较多，拟合差的事例切伦科夫光都比较少
-
-\paragraph{为什么之前觉得切伦科夫光判选能额外筛掉事例}
-
-之前的拟合优度判选条件（cut-1）设置得比较松，切伦科夫光判选条件（cut-3）设置得比较严格。
-
-之前出现 cut-1 留下的大气中微子事例，被 cut-3 筛掉。我们认为这些事例，是拟合比较好，但是切伦科夫光较少。而实际情况是之前 cut-1 比较松，这些事例拟合得也没有那么好。
-
-\paragraph{改进}
-
-把 cut-1 也设置更严格一些，例如要求 $I_{\chi_P^2} > 200$，如图：
-
-\begin{figure}[!htb]
-    \centering
-    \subfigure[DSNB]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-srn.png}
-    }
-    \subfigure[大气中微子]{
-        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-atmos.png} 
-    }
-    \caption{横轴表示拟合好坏，横轴表示切伦科夫光相对多少，粉线和红线标注判选条件，第一象限为通过}
-\end{figure}
-
-这样两个判选条件看起来一样严格了。我们验证一下选择效率：
-
-\begin{table}[!htb]
-    \centering
-    \caption{两种判选条件的选择效率和相关系数}
-    \begin{tabular}{ccccc}
-        \hline
-        & cut-1 效率 & cut-3 效率 & 联合效率 & 相关系数 \\
-        \hline
-        DSNB & 85.5 \% & 84.5 \% & 75.9 \% & 0.29 \\
-        大气中微子 & 4.7 \% & 1.1 \% & 0.6 \% &  0.27 \\
-        % 相对信噪比 & 18.2 & 76.8 & 127 & \\
-        \hline
-    \end{tabular}
-\end{table}
-
-其中相关系数为：
-
-\begin{equation}
-    \rho = \frac{\varepsilon_{13}  - \varepsilon_1 \varepsilon_3}{\sqrt{\varepsilon_1 (1 - \varepsilon_1) \varepsilon_3 (1 - \varepsilon_3)}}
-\end{equation}
-
-附上原来的选择效率：
-
-\begin{table}[!htb]
-    \centering
-    \caption{两种判选条件的选择效率和相关系数（旧）}
-    \begin{tabular}{ccccc}
-        \hline
-        & cut-1 效率 & cut-3 效率 & 联合效率 & 相关系数 \\
-        \hline
-        DSNB & 99.1 \% & 84.5 \% & 84.2 \% & 0.15\\
-        大气中微子 & 32.2 \% & 1.1 \% & 0.8 \% & 0.10 \\
-        % 信噪比 & 3.1 & 76.8 & 105 & \\
-        \hline
-    \end{tabular}
-\end{table}
-
-\subsection{过阈事例率和选择效率}
-
-\subsubsection{事例分类和判选条件}
-
+\subsection{Final-state composition and simulated rates}
 为了便于讨论，我们将所有的大气中微子事例按三个维度分类，三个维度分别为中微子味道及反应流、核素、末态。
 
 分类的层次和每一层次的经典值见下图所示。
@@ -1267,8 +694,493 @@ $I_{chev}$ 表示事例中切伦科夫光的相对闪烁光有多少，数值越
     \label{tab:atmos-detail-numubar}
 \end{table}
 
-\subsubsection{不同层级的大气中微子事例指标展示}
+\newpage
+\section{Event Selection}
+\subsection{Selection overview}
 
+Selections are applied to suppress the atmospheric-neutrino-induced background. The time correlation between prompt and delayed events in the IBD is first employed to select the DSNB candidates. The difference of particle composition of prompt events (positrons in DSNB events and nucleons in atmospheric-neutrino-induced events) is the base of background removal. 
+
+\begin{enumerate}
+    \item coincidence
+    \item fitting goodness
+    \item cherenkov ring compliance
+    \item cherenkov photon emitting ability
+\end{enumerate}
+
+\begin{table}[!htb]
+    \centering
+    \caption{判选条件和选择效率}
+    \begin{tabular}{cccc}
+        \hline
+        判选 & 条件 & \makecell{大气中微子 \\ 选择效率} & \makecell{DSNB \\ 选择效率} \\
+        \hline
+        模拟 & JSAP & $100.0\%$ & \\
+        重建 & 骆文泰 MLE & & \\
+        \hline
+        符合时间窗 & $t \le \SI{20}{\micro\second}$ & $104.5\%$ & \\
+        符合多重数 & $2$ & $27.9\%$ & $52.7\%$\\
+        \hline
+        快信号能量 & $10 \le E \le 30$ & $9.2\%$ & $49.3\%$ \\
+        \hline
+        慢信号能量 & \makecell{$0.06 \le E \le 0.94$ \\ $1.3 \le E \le 3.2$ \\ $6.8 \le E \le 10$} & $6.0\%$ & $36.4\%$\\
+        \hline
+        拟合优度 & $\chi_P^2 < 311 \frac{E_{prompt}}{MeV} + 1212$ & $4.7\%$ & $34.6\%$ \\
+        \hline
+        角分布 & $\chi_{chev}^2 < -0.025 \frac{E_{prompt}}{MeV} + 1.25$ & & \\
+        \hline
+        CS Ratio & $\frac{CPE}{0.3 SPE - 8} > 0.9$ & $0.05\%$ & $30.1\%$ \\
+    \end{tabular}
+\end{table}
+
+\subsection{Coincidence}
+
+取三个核素的中子俘获末态能量如下。本研究重建的能量分辨率：$\sigma_E / E = 20.6\% / \sqrt{E}$
+\begin{table}[!htb]
+    \centering
+    \caption{中子在不同核素上俘获的末态可见能量}
+    \begin{tabular}{ccc}
+        \hline
+        核素 & 能量 $E_{cap} [\si{\MeV}]$ & 分辨率 $\sigma_{cap} [\si{\MeV}]$ \\
+        \hline
+        \ce{{}^6Li} & 0.50 & 0.15 \\
+        \ce{{}^1H} & 2.23 & 0.31 \\
+        \ce{{}^{35}Cl} & 8.58 & 0.60 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+取慢信号能量 cut：
+\begin{equation}
+    E_{cap} - 3\sigma_{cap} \le E_{delayed} \le E_{cap} + 3\sigma_{cap}
+\end{equation}
+\subsection{Fitting goodness}
+
+Fitting goodness is evaluated to quantify how a prompt event is similar to an electron event. All events in this study are reconstructed with the same electron model. So the better the model fits, the higher probability that the event is an electron event.
+
+The fitting goodness can be interpreted as the residuals between the observed and expected bin counts $n_i$ and $\nu_i$. The latter are predicted given the fitting result: $\nu_i = \nu_i(\vec{\theta})$.
+
+$\nu(i, t^{res} | \vec{\theta})$, the expected PE number in the i-th PMT and at time $t$, is to be determined. Based on the likelihood function (\ref{equ:likelihood-time}), it is obtained as follows:
+
+\begin{equation}
+  \nu(i, t^{res} | \vec{\theta}) = n_i^{exp} \sum{\frac{n_i^{type}}{n_i^{exp}} f^{type} (t^{res})}  
+\end{equation}
+
+$f^{type} (t)$ are normalized, guaranteeing that the integral of $\nu$ yields the expected PE number in the i-th PMT.
+
+\begin{equation}
+  \int{\nu(i, t^{res} | \vec{\theta}) \mathrm{d} t^{res}} = n_i^{exp}  
+\end{equation}
+
+For comparison purposes, the observed and expected PE numbers are binned. The sphere where PMTs are mounted is divided into 68 regions with a close area. Thus, each region covers a comparable number of PMTs. And the time window is divided into 80 bins, each with a width of \SI{2.5}{\nano\second}. We assume that $t_{k, center}$ is the center of time in the bin $(j, k)$. For the bin $(j, k)$, the bin count is calculated as the sum of the expected PE number in all PMTs in the region $j$:
+
+\begin{equation}
+    \nu_{j, k} = \sum_{\mathrm{PMT} i \in \mathrm{region} j} \nu(i, t_{k, center}|\vec{\theta})
+\end{equation}
+
+The observed PE number distribution $n_{j, k}$ and the expected one of a DSNB prompt event are shown in figure \ref{fig:dist-goodness}
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[observed PE number]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/DSNB-observed.png}
+    }
+    \subfigure[expected PE number]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/DSNB-expected.png}
+    }
+    \caption{The observed and expected PE number distribution in a DSNB prompt event.}
+    \label{fig:dist-goodness}
+\end{figure}
+
+The goodness $\chi^2$ is then calculated with $n, \nu$:
+
+\begin{equation}
+    \chi_P^2 = 2 \sum_{i=1}^N \left( n_i \log \frac{n_i}{\nu_i} + \nu_i - n_i \right)
+    \label{equ:chi2}
+\end{equation}
+
+Only when $n_i \neq 0$, the NDF is counted, and the $\chi_P^2$ is accumulated.
+
+With (\ref{equ:chi2}), the fitting goodness of each prompt event is obtained. For DSNB prompt events and atomspheric-neutrino prompt events, $\chi_P^2-E_k$ distributions are plotted and compared, as shown in figure \ref{fig:sel-goodness}. We remove events with prompt $(\chi_P^2, E_k)$ outside the red-line parallelogram.
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/sensitivity/sel-goodness-srn.png}
+    }
+    \subfigure[atmos]{
+        \includegraphics[width=0.45\linewidth]{figures/sensitivity/sel-goodness-o16nue-.png}
+    }
+    \caption{The joint distribution of goodness and energy. The red lines show the region retained.}
+    \label{fig:sel-goodness}
+\end{figure}
+
+拟合优度 $\chi_P^2$ 的计算：
+
+\begin{equation}
+    \chi_P^2 = 2 \sum_{i=1}^N \left( n_i \log \frac{n_i}{\nu_i} + \nu_i - n_i \right)
+\end{equation}
+
+根据 \cite{cowan_statistical_1998}，当 $n_i = 0$ 时，$n_i \log \frac{n_i}{\nu_i} = 0$，仍需计算 $\nu_i - n_i$，并加入到 $\chi_P^2$ 中
+
+自由度: $\mathrm{NDF} = N - m - 1$，其中 $N = 80 \times 68 = 5440$ 为总计格点个数， $m = 7$ 为重建的参数个数，包括能量、位置（3）、时间、方向（2）7维信息。故：
+
+下面展示了几个 goodness 的计算方法
+\begin{enumerate}
+    \item （错误）计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $80 \times 68$，$80$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{2.5}{\nano\second}$。$68$ 表示 6444 支 PMT，分入 68 区间。计算 $\chi^2_P$ 时 $n_{ij}=0$ 的 bin 不计入计算。
+      
+    \item 计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $80 \times 68$，$80$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{2.5}{\nano\second}$。$68$ 表示 6444 支 PMT，分入 68 区间。$\mathrm{NDF} = 80 \times 68 - 7 - 1 = 5432$
+    
+    \item 计算 PE 时空分布的期望值 $\nu_{ij}$ ，统计测量值 $n_{ij}$，按 (\ref{equ:chi2}) 计算 $\chi^2_P$。分 bin $200 \times 6444$，$200$ 表示 $t^{res} \in [200, 400] \si{\nano\second}$，每 bin 宽度 $\SI{1}{\nano\second}$。$6444$ 表示 6444 支 PMT。 $\mathrm{NDF} = 200 \times 6444 - 7 - 1 = 1288792$
+
+    \item 直接代入拟合结果，计算似然函数的负对数，$- \ln{f(n_i^{obs}, t_{ij} | \vec{\theta})}$，似然函数如式 (\ref{equ:likelihood})
+\end{enumerate}
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-80-68-old.png}
+    }
+    \subfigure[大气中微子 $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-80-68-old.png} 
+    }
+    \caption{$\mathrm{NDF} = 5432$ (错误的计数方法)}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-80-68.png}
+    }
+    \subfigure[大气中微子 $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-80-68.png} 
+    }
+    \caption{$\mathrm{NDF} = 5432$}
+\end{figure}
+ \begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-200-6444.png}
+    }
+    \subfigure[大气中微子 $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-200-6444.png} 
+    }
+    \caption{$\mathrm{NDF} = 1288792$}
+\end{figure}
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-likelihood.png}
+    }
+    \subfigure[大气中微子 $\chi_P^2$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-likelihood.png} 
+    }
+    \caption{似然函数的负对数}
+\end{figure}
+
+% \begin{figure}[!htb]
+%     \centering
+%     \subfigure[抛弃0的 80*68 bins: 不抛弃 0 的 80*68 bins]{
+%         \includegraphics[width=0.45\linewidth]{figures/selections/goodness/neo-80-68.png}
+%     }
+%     \subfigure[200*6444 bins: 80*68 bins]{
+%         \includegraphics[width=0.45\linewidth]{figures/selections/goodness/neo-200-6444.png} 
+%     }
+%     \caption{三种卡方计算方法对比：抛弃 0 的 80*68 bins、不抛弃 0 的 80*68 bins、不抛弃 0 的 200*6444 bins}
+% \end{figure}
+
+现在计算不同方法的选择效率 $\epsilon$，表示为：
+\begin{equation}
+    \epsilon_{goodness} = \frac{N_{goodness}}{N_{previos}}
+\end{equation}
+
+其中 $N_{previos}$ 表示通过之前的判选之后剩余的事例数（之前的判选包括快慢信号符合、快信号能量判选）；$N_{goodness}$ 表示通过之前的判选之后，进一步通过拟合优度判选的事例数。
+
+并计算相对信噪比
+\begin{equation}
+    \frac{\epsilon_{DSNB}}{\epsilon_{Atmos}}
+\end{equation}
+
+\begin{table}[!htb]
+    \centering
+    \caption{不同方法计算的拟合优度判选，其选择效率}
+    \begin{tabular}{cccc}
+        \hline
+        拟合优度方法 & DSNB & 大气中微子 & 相对信噪比 \\
+        \hline
+        \makecell{$\chi_P^2 (Wrong)$ \\ $\mathrm{NDF} = 5432$} & $96.1\%$ & $37.9\%$ & $2.54$ \\
+        \hline
+        \makecell{$\chi_P^2$ \\ $\mathrm{NDF} = 5432$} & $95.4\%$ & $35.1\%$ & $2.72$ \\
+        \hline
+        \makecell{$\chi_P^2$ \\ $\mathrm{NDF} = 1288792$} & $98.8\%$ & $32.1\%$ & $3.07$ \\
+        \hline
+        $-\ln{f(n_i^{obs}, t_{ij} | \vec{\theta})}$ & $99.1\%$ & $47.3\%$ & $2.09$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+故采用 $\chi_P^2 (\mathrm{NDF} = 200 \times 6444 - 7 - 1 = 1288792)$，作为拟合优度指标，信噪比相比此前的错误算法，提升约 $21\%$
+\subsection{Cherenkov-ring compliance}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sel-cherenkov-ring.png}
+    \caption{The compliance shows how a hit pattern is similar to a cherenkov ring. The less value, the closer pattern.}
+    \label{fig:sel-ring}
+\end{figure}
+
+\paragraph{事例展示}
+
+为了直观展示不同 PMT 的位置关系和事例的切伦科夫环，将球面上的点 $(\theta, \phi)$ 投影到平面坐标 $(\tilde{\theta}, \tilde{\phi})$。本投影中的 $\theta$ 是 PMT 位置的球面极角，与下文用于判选的 PE 相对重建事例方向的夹角不同。投影如下：
+\begin{equation}
+    \begin{aligned}
+        & \tilde{\theta} = \frac{1.3}{\sqrt{1 + \sin \theta \cdot \sin \phi / 2}} \cos \theta \\
+        & \tilde{\phi} = \frac{-2}{\sqrt{1 + \sin \theta \cdot \sin \phi / 2}} \sin \theta \cdot \cos \frac{\phi}{2}
+    \end{aligned}
+\end{equation}
+
+对于球面上的 6444 支 PMT，我们展示每一支原来的 $(\theta, \phi)$，以及它们投影之后的参数 $(\tilde{\theta}, \tilde{\phi})$
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[$\theta: (\tilde{\theta}, \tilde{\phi})$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/xytheta.png}
+    }
+    \subfigure[$\phi: (\tilde{\theta}, \tilde{\phi})$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/xyphi.png}
+    }
+    \caption{6444 支 PMT 的投影}
+\end{figure}
+
+判选思路：
+
+\begin{itemize}
+    \item 对于 DSNB 信号，快信号为正电子，其切伦科夫角分布通常接近正电子模板，在 $\cos\theta \approx 0.7$ 附近具有明显峰值。
+    \item 部分大气中微子本底包含多个方向不同的次级带电粒子，例如多个 $\gamma$ 产生的电子，或 $\mu^\pm$ 及伴随的强子活动，其切伦科夫角分布更分散，与正电子模板的偏离较大。产生正电子快信号的本底仍可能通过此判选。
+\end{itemize}
+
+根据两者切伦科夫光角分布的形状差异进行判选，以一维 $\cos\theta$ 分布作为环形态的指标。
+
+当前方法并不通过固定时间残差窗口对 PE 做硬分类，而是使用每个 PE 的切伦科夫后验概率作为权重。切伦科夫成分同时包含直入射和非直入射成分；一个 PE 可以按概率分配到切伦科夫光和闪烁光两类，例如贡献 $0.9$ CPE 和 $0.1$ SPE。
+
+图 \ref{fig:chev-pattern} 保留了基于时间残差的旧版快信号展示，用于直观说明环结构，不作为当前后验概率加权判选的结果图。
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/srn-15-dist.png}
+    }
+    \subfigure[大气中微子]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/atmos-9115-dist.png} 
+    }
+    \caption{DSNB 和大气中微子事例的旧版快信号环结构示意，颜色表示时间残差。当前判选采用切伦科夫后验概率加权，而非本图的时间残差展示方式。}
+    \label{fig:chev-pattern}
+\end{figure}
+
+对于快信号中的每个 PE，使用重建顶点 $\boldsymbol{x}_{\mathrm{reco}}$、重建事例单位方向 $\hat{\boldsymbol{d}}_{\mathrm{reco}}$ 和命中 PMT 的位置 $\boldsymbol{r}_{\mathrm{PMT},j}$，定义夹角 $\theta_j$：
+\begin{equation}
+    \cos\theta_j = \hat{\boldsymbol{d}}_{\mathrm{reco}} \cdot
+    \frac{\boldsymbol{r}_{\mathrm{PMT},j}-\boldsymbol{x}_{\mathrm{reco}}}
+    {|\boldsymbol{r}_{\mathrm{PMT},j}-\boldsymbol{x}_{\mathrm{reco}}|}.
+\end{equation}
+
+以 PE 的切伦科夫后验概率 $w_j^C$ 为权重填充 $\cos\theta$ 直方图，并归一化得到各 bin 的观测概率 $n_i$：
+\begin{equation}
+    n_i = \frac{\sum_{j\in i} w_j^C}{\sum_j w_j^C}, \qquad \sum_i n_i = 1.
+\end{equation}
+
+通过正电子模拟标定归一化的 $\cos\theta$ 预期分布 $\nu_i$，满足 $\sum_i\nu_i=1$。
+
+图 \ref{fig:chev-cos} 展示了当前方法得到的两个单事例角分布 $n_i$，和预期分布 $\nu_i$ 的对比，明显可以看到，DSNB 事例比大气中微子事例更契合预期分布。
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/srn-30-2.png}
+    }
+    \subfigure[大气中微子]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/atmos-61-2.png}
+    }
+    \caption{按切伦科夫后验概率加权并归一化的快信号 $\cos\theta$ 分布：DSNB 事例（左）和大气中微子事例（右），红线表示由正电子模拟标定的固定 $\cos\theta$ 模板 $\nu_i$。纵轴为各 bin 的概率。}
+    \label{fig:chev-cos}
+\end{figure}
+
+采用与拟合优度 cut 相同形式的统计量比较预期分布 $\nu_i$ 与观测分布 $n_i$。拟合优度比较二维直方图，这里比较一维归一化角分布：
+
+\begin{equation}
+    \chi_{\mathrm{chev}}^2 = 2\sum_i\left(n_i\ln\frac{n_i}{\nu_i}+\nu_i-n_i\right).
+\end{equation}
+
+由于两个分布均归一化到 1，此统计量衡量角分布形状与正电子模板的偏离，而不直接比较切伦科夫 PE 总量。$\chi_{\mathrm{chev}}^2$ 越小，角分布越接近正电子模板。对于 $n_i=0$ 的 bin，取 $n_i\ln(n_i/\nu_i)=0$。
+
+图 \ref{fig:chev-selection} 展示了信号与本底的 $\chi_{\mathrm{chev}}^2$ 随快信号重建能量的分布，以及当前采用的判选边界。
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/latest-indep-srn-chevangle-e.png}
+    }
+    \subfigure[大气中微子]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/thetac/latest-indep-all-chevangle-e.png}
+    }
+    \caption{独立考察角分布判选时，DSNB（左）和大气中微子（右）的 $\chi_{\mathrm{chev}}^2$--$E_{\mathrm{prompt}}$ 分布。红线为当前随能量变化的判选边界，保留红线下方的事例。}
+    \label{fig:chev-selection}
+\end{figure}
+
+保留满足下式的事例作为后续判选的候选：
+\begin{equation}
+    \chi_{\mathrm{chev}}^2 < -0.025\,\frac{E_{\mathrm{prompt}}}{\si{\MeV}}+1.25.
+\end{equation}
+该边界根据模拟中 DSNB 信号与大气中微子本底的分布目测选定，目标是尽量保留 DSNB 事例并减少保留的大气中微子事例，目前尚未进行定量的参数扫描优化。
+
+当前方法的局限与后续优化方向：
+
+\begin{itemize}
+    \item 当前使用固定正电子模板，尚未考虑角分布对能量和顶点位置的依赖。
+    \item 当前判选边界由目测确定，后续可通过参数扫描定量优化，并评估信号效率与本底保留率的权衡。
+\end{itemize}
+\subsection{cherenkov photon emitting ability}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sel-csr.png}
+    \caption{The Cherenkov photon number compared with scintillation one. The more an event is like an electron event, the bigger the relative Cherenkov photon number is.}
+    \label{fig:sel-csr}
+\end{figure}
+
+\subsection{selection efficiency}
+
+\begin{table}[!htb]
+    \caption{Event rates after selections}
+    \begin{tabular}{rrrrr}
+        \hline
+         & DSNB & Atmos NC & Atmos $\bar{\nu}_e$ CC & Atmos $\bar{\nu}_{\mu} / \nu_{\mu}$ CC \\
+        \hline
+        Before cut & & & & \\
+        Coincidence & & & & \\
+        Goodness & & & & \\
+        Cut-2 & & & & \\
+        Cut-3 & & & & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+After all the cuts are applied, the DSNB even rate remains $1.68 (\SI{20}{\kilo\tonne year})^{-1}$, the atmospheric neutrino event rate decreases to $0.0212 (\SI{20}{\kilo\tonne year})^{-1}$
+
+\subsection{判选条件重复问题}
+\subsubsection{要讨论的两个判选条件}
+
+\begin{table}[!htb]
+    \centering
+    \caption{要讨论的两个判选条件}
+    \begin{tabular}{ccc}
+        \hline
+        编号 & 名称 & 判选表达式 \\
+        \hline
+        cut-1 & 拟合优度 & $\chi_P^2 < 310 * \frac{E_{prompt}}{\si{\MeV}} + 1412$ \\
+        cut-3 & 切伦科夫光发光能力 & $\frac{CPE - (0.3 * SPE - 8)}{0.3 * SPE - 8} > -0.1$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{问题描述}
+
+我们基于电子模型重建事例顶点 $(E, t_0, \vec{x}, \vec{d})$，也基于电子模型重建 SPE、CPE \ref{equ:nc-recon}。
+
+假设有一我们不知道粒子类型的事例，只要这个事例的重建较好，我们就可以认为这个事例是类似电子的。因此这个事例的切伦科夫光、闪烁光的比例也应该和电子接近
+
+那么切伦科夫光发光能力的判选，是否和拟合优度的判选重复？
+
+\subsubsection{讨论}
+
+我们将两个判选条件做线性变换，重写为：
+
+\begin{equation}
+    \begin{aligned}
+        I_{\chi_P^2} & = -\chi_P^2 + 310 * \frac{E_{prompt}}{\si{\MeV}} + 1412 & > 0 \\
+        I_{chev} & = \frac{CPE - (0.3 * SPE - 8)}{0.3 * SPE - 8} + 0.1 & > 0
+    \end{aligned}
+\end{equation}
+
+$I_{\chi_P^2}$ 表示拟合的好坏，数值越大，拟合结果越好，事例越像电子
+
+$I_{chev}$ 表示事例中切伦科夫光的相对闪烁光有多少，数值越大，切伦科夫光越多
+
+下面我们将展示这两个指标的二维分布
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-srn-old.png}
+    }
+    \subfigure[大气中微子]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-atmos-old.png} 
+    }
+    \caption{横轴表示拟合好坏，横轴表示切伦科夫光相对多少，粉线标注判选条件，第一象限为通过}
+\end{figure}
+
+可以看到，和我们想的一样，拟合好的事例切伦科夫光都比较多，拟合差的事例切伦科夫光都比较少
+
+\paragraph{为什么之前觉得切伦科夫光判选能额外筛掉事例}
+
+之前的拟合优度判选条件（cut-1）设置得比较松，切伦科夫光判选条件（cut-3）设置得比较严格。
+
+之前出现 cut-1 留下的大气中微子事例，被 cut-3 筛掉。我们认为这些事例，是拟合比较好，但是切伦科夫光较少。而实际情况是之前 cut-1 比较松，这些事例拟合得也没有那么好。
+
+\paragraph{改进}
+
+把 cut-1 也设置更严格一些，例如要求 $I_{\chi_P^2} > 200$，如图：
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-srn.png}
+    }
+    \subfigure[大气中微子]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/indicator-atmos.png} 
+    }
+    \caption{横轴表示拟合好坏，横轴表示切伦科夫光相对多少，粉线和红线标注判选条件，第一象限为通过}
+\end{figure}
+
+这样两个判选条件看起来一样严格了。我们验证一下选择效率：
+
+\begin{table}[!htb]
+    \centering
+    \caption{两种判选条件的选择效率和相关系数}
+    \begin{tabular}{ccccc}
+        \hline
+        & cut-1 效率 & cut-3 效率 & 联合效率 & 相关系数 \\
+        \hline
+        DSNB & 85.5 \% & 84.5 \% & 75.9 \% & 0.29 \\
+        大气中微子 & 4.7 \% & 1.1 \% & 0.6 \% &  0.27 \\
+        % 相对信噪比 & 18.2 & 76.8 & 127 & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+其中相关系数为：
+
+\begin{equation}
+    \rho = \frac{\varepsilon_{13}  - \varepsilon_1 \varepsilon_3}{\sqrt{\varepsilon_1 (1 - \varepsilon_1) \varepsilon_3 (1 - \varepsilon_3)}}
+\end{equation}
+
+附上原来的选择效率：
+
+\begin{table}[!htb]
+    \centering
+    \caption{两种判选条件的选择效率和相关系数（旧）}
+    \begin{tabular}{ccccc}
+        \hline
+        & cut-1 效率 & cut-3 效率 & 联合效率 & 相关系数 \\
+        \hline
+        DSNB & 99.1 \% & 84.5 \% & 84.2 \% & 0.15\\
+        大气中微子 & 32.2 \% & 1.1 \% & 0.8 \% & 0.10 \\
+        % 信噪比 & 3.1 & 76.8 & 105 & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\newpage
+\section{Selection Results and Residual Backgrounds}
+\subsection{Event classification and selection metrics}
 \begin{table}[!htb]
     \centering
     \caption{判选条件和需要事例指标}
@@ -1283,6 +1195,8 @@ $I_{chev}$ 表示事例中切伦科夫光的相对闪烁光有多少，数值越
         \hline
     \end{tabular}
 \end{table}
+
+\subsection{Event rates through successive selections}
 
 我们对大气中微子事例依次应用以上判选条件。下图中，我们展示按第一层级分类的不同大气中微子事例的各指标。这些指标展示每类事例在各个 cut 下的表现，如图 \ref{fig:layer1-cut1}，展示的是各类事例的拟合优度好坏，指标越大，事例拟合得越好，而我们只保留 $x>0$ 事例作为信号候选。可以从图中看到，大部分大气中微子事例的拟合都是不够好的。
 
@@ -1406,9 +1320,7 @@ $I_{chev}$ 表示事例中切伦科夫光的相对闪烁光有多少，数值越
 \end{table}
 
 $\bar{\nu}_{\mu} + \ce{^{16}O} \to \bar{\nu}_{\mu} + \ce{^{15}O} + n$ 事例中的中子，在其产生的第 $\SI{6.14}{\nano\second}$，与探测器中的 \ce{^{16}O} 反应：$n + \ce{^{16}O} \to \ce{^{16}O} + n + 3 \gamma$，其中 $3 \gamma$ 的动能总和为 $\SI{11.08}{\MeV}$，与 DSNB 信号的正电子快信号行为相似，导致该事例通过判选。
-
-\subsubsection{不同维度的大气中微子事例选择效率展示}
-
+\subsection{Selection efficiencies across flavour, isotope, and final state}
 上一小节我们展示了大气中微子过阈的绝对事例率，本小节将展示各类大气中微子事例的选择效率，从而横向对比三轮判选不同核素、不同中微子味道、不同末态的不同效果。
 
 定义 $\eta_1$ 为事例过 cut-1 的效率，$\eta_{12}$ 为事例同时过 cut-1/2 的效率，$\eta_{123}$ 为事例同时过 cut-1/2/3 所有判选的效率，下面我们将从不同侧面展示这三个效率
@@ -1491,6 +1403,70 @@ $\bar{\nu}_{\mu} + \ce{^{16}O} \to \bar{\nu}_{\mu} + \ce{^{15}O} + n$ 事例中�
     \label{fig:eff-nu-n}
 \end{figure}
 
+\newpage
+\section{Sensitivity Study}
+\[P_s = \sum_{i=a}^b \mathrm{Poisson(i, \mu_{bkg})}\]
+
+where $b$ is the nearest integer around $S + \mu_{bkg}$, and $a$ is determined by $b$, both of which are on the same horizontal level in the probability distribution.
+\[\mathrm{Poisson} (a, \mu_{bkg}) \ge \mathrm{Poisson} (b, \mu_{bkg}) \]
+\[\mathrm{Poisson} (a - 1, \mu_{bkg}) \le \mathrm{Poisson} (b, \mu_{bkg}) \]
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.5\linewidth]{figures/sensitivity/sensitivity.png}
+    \caption{DSNB detection sensitivity with different types of detectors}
+    % Discovery potential for supernova relic neutrinos with slow liquid scintillator detectors
+    \label{fig:sensitivity}
+\end{figure}
+
+It can be found that in the LiCl water solution detector, the sensitivity of DSNB is the greatest, slightly greater than that in the Slow-LS detector.
+
+\newpage
+\section{Summary}
+
+\newpage
+\section{Appendix: 讨论遇到的问题}
+\subsection{拟合优度算法比较及个例研究}
+\textbf{好像这些图没办法看出差别，暂时没意义，或者想一想更好的表现形式}
+
+取一个 DNSB 事例，$\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$，另取一个大气中微子事例（$\ce{{}^{16}O} + \bar{\nu}_e$，NC 反应道，末态为多个中子）$\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$，对比两者逐 bin 的 $\chi_P^2$
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[DSNB $\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-chi2.png}
+    }
+    \subfigure[大气中微子 $\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-chi2.png} 
+    }
+    \caption{一个 DSNB 和大气中微子快信号逐 bin $\chi_P^2$ 对比}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[预期]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-v.png}
+    }
+    \subfigure[实测]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/srn-n.png} 
+    }
+    \caption{DSNB $\chi_P^2 = 5600 @ \SI{14.46}{\MeV}$}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[预期]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-v.png}
+    }
+    \subfigure[实测]{
+        \includegraphics[width=0.45\linewidth]{figures/selections/goodness/atmos-n.png} 
+    }
+    \caption{大气中微子 $\chi_P^2 = 12254 @ \SI{14.95}{\MeV}$}
+\end{figure}
+
+\subsection{大气中微子末态分类选择效率}
+\textbf{待整理}
+\subsection{方法局限和待完善内容}
 \textbf{待完善：} NC 末态和 CC 末态可以分在两个图里
 
 \subsection{待做}
