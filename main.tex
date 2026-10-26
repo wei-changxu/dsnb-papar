@@ -14,6 +14,7 @@
 \usepackage{diagbox}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathrsfs}
 \usepackage{ctex}
 \usepackage{tikz}
 \usepackage{tikz-qtree}
@@ -123,10 +124,7 @@ The applied IBD rate induced by DSNB is $2.2 \pm 0.7$, given the neutrino temper
 \newpage
 \section{Simulation and Event Reconstruction}
 \subsection{DSNB and background simulation}
-\subsection{event reconstruction}
-\subsubsection{waveform fitting}
-\subsubsection{vertex reconstruction}
-
+\subsection{vertex reconstruction}
 
 A reconstruction method developed for JNE is applied in this study \cite{luo_reconstruction_2023}. The likelihood function $f(n_i^{obs}, t_{ij}|\vec{\theta})$ shows the probability of observed PE numbers in the i-th PMT $n_i^{obs}$ and their time distributions $t_{ij}$, given vertex $\vec{\theta}$, including the reconstructed energy $E$, position $\{x, y, z\}$, event time $t_{event}$ and direction $\vec{d}_{fit}$.
 \begin{equation}
@@ -147,7 +145,106 @@ A reconstruction method developed for JNE is applied in this study \cite{luo_rec
 
 The PE number is estimated as: $n_i^{exp} (\vec{\theta}) = \sum{n_i^{type}} (\vec{\theta})$. The time residual is calculated as: $t_{ij}^{res} = t_{ij} - t_{event} - TOF(\vec{\theta}) - t_{shift}$. And its distributions $f^{type}(t)$ are calibrated from simulation.
 
-\subsubsection{CPE and SPE reconstruction}
+\subsection{CPE and SPE reconstruction}
+
+\subsubsection{闪烁光 / 切伦科夫光重建方法}
+
+本部分我们将利用模型不依赖的光子时间分布拟合，重建事例的闪烁光 PE 数和切伦科夫光 PE 数
+
+在拟合开始前，我们先计算每个 PE 的光子时间
+
+\begin{equation}
+    t_{photon}^C = t_{PE} - \sum_{m} TOF_{m}^{C} - t_{event} - t_{transit}
+\end{equation}
+  
+\begin{equation}
+    t_{photon}^S = t_{PE} - \sum_{m} TOF_{m}^{S} - t_{event} - t_{transit}
+\end{equation}
+
+其中 $\sum_{m} TOF_{m}$ 表示光子在所有介质中的总飞行时间，三层介质依次为液体闪烁体、亚克力、矿油，光子在介质中的飞行速度与其波长有关，而闪烁光与切伦科夫光的波长组成不同，我们据此应用不同的等效群速度 $v_{m}^{S, eff}, v_{m}^{C, eff}$，分别计算同一个 PE 是闪烁光和切伦科夫光时的飞行时间
+
+$t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在顶点重建中，它们作为一个整体被重建 $t_0 = t_{event} + t_{transit}$。每个 PE 真实的 $t_{transit}$ 不同，而一个事例中的所有 PE 共用一个 $t_0$，因此根据重建顶点信息计算的 $t_{photon}$ 是经过 TTS 展宽后的光子时间，对于本身光子时间散布较小的直接切伦科夫光，TTS 展宽的效应尤其明显
+
+根据 PE 的光子时间，进行扩展非分箱最大似然拟合：
+
+\begin{equation}
+    \mathcal{L} = e^{- \sum_k N_k} \prod_{i=1}^{N_{obs}} \left( \sum_k N_k f_k \right)
+\end{equation}
+
+其中 $k$ 表示 PE 的种类，包括直入射闪烁光、非直入射闪烁光、直入射切伦科夫光、非直入射切伦科夫光、暗噪声共 5 种；$N_k$ 表示每种类型的光的 PE 数，是待拟合参数；$f_k$ 是展宽后的光子时间分布（光强曲线）
+
+对于直入射切伦科夫光
+
+\begin{equation}
+    f^{CD} (t_{photon}^C) = \delta(t_{photon}^C) \otimes \mathrm{Gauss} (0, \sigma_{tt})
+\end{equation}
+
+对于闪烁光、非直入射切伦科夫光
+
+\begin{equation}
+    f^k (t_{photon}) = \frac{\tau_r^k + \tau_d^k}{{\tau_d^k}^2} (1 - e^{-t_{photon} / \tau_r^k} e^{-t_{photon} / \tau_d^k} \otimes \mathrm{Gauss} (0, \sigma_{tt}))
+\end{equation}
+
+在模拟研究中，PMT 的 TTS 设定为 FWHM \SI{1}{\nano \second}，所以高斯标准差 $\sigma_{tt} = \SI{0.424}{\nano\second}$，其他参数设置见表 \ref{tab:light-param}
+
+\begin{table}[!htb]
+    \centering
+    \caption{直入射闪烁光（SD）、非直入射闪烁光（SI）、直入射切伦科夫光（CD）、非直入射切伦科夫光（CI）光强曲线参数}
+    \begin{tabular}{ccccc}
+        \hline
+        & CD & CI & SD & SI \\
+        \hline
+        $\tau_r [\si{\nano\second}]$ & - & 0.211 & 0.5 & 6.20 \\
+        $\tau_d [\si{\nano\second}]$ & - & 14.1 & 10 & 19.7 \\
+        $\sigma_{tt} [\si{\nano\second}]$ & 0.424 & 0.424 & 0.424 & 0.424 \\
+        \hline
+    \end{tabular}
+    \label{tab:light-param}
+\end{table}
+
+图 \ref{fig:e-sd} 展示了直入射闪烁光时间分布，图 \ref{fig:e-cd} 展示了直入射切伦科夫光时间分布。可以看到，\SI{3}{\MeV} 电子直入射闪烁光的展宽光子时间分布成分主要是闪烁光发光时延，由液闪介质决定；直入射切伦科夫光的展宽光子时间分布成分主要是 PMT 渡越时间，由 PMT 结构决定 
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[带电粒子沉积能量时间分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/s-dep.png}
+    }
+    \subfigure[闪烁光发光时延]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/s-tdelay.png} 
+    }
+    \subfigure[光子时间]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/s-pho.png}
+    }
+    \subfigure[TTS 展宽的光子时间]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/s-pho-smear.png}
+    }
+    \caption{模拟的 \SI{3}{\MeV} 电子直入射闪烁光 PE 时间分布真值。模拟的闪烁光光强曲线设置 $\tau_r = \SI{0.5}{\nano\second}$, $\tau_d = \SI{10}{\nano\second}$，PMT 渡越时间 $FWHM = \SI{1}{\nano\second}$。红线表示拟合用的直入射闪烁光 PE 时间分布，参数见表 \ref{tab:light-param}}
+    \label{fig:e-sd}
+\end{figure}
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[带电粒子沉积能量时间分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/c-dep.png}
+    }
+    \subfigure[闪烁光发光时延]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/c-tdelay.png} 
+    }
+    \subfigure[光子时间]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/c-pho.png}
+    }
+    \subfigure[TTS 展宽的光子时间]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-beta/c-pho-smear.png}
+    }
+    \caption{模拟的 \SI{3}{\MeV} 电子直入射切伦科夫光 PE 时间分布真值。模拟的设定的PMT 渡越时间 $FWHM = \SI{1}{\nano\second}$。红线表示拟合用的直入射切伦科夫光 PE 时间分布，参数见表 \ref{tab:light-param}}
+    \label{fig:e-cd}
+\end{figure}
+
+\subsubsection{电子和中子重建效果}    
+\subsubsection{中子重建效果不佳的原因}
+
+
+\subsection{CPE and SPE reconstruction}
 % 本研究采用的
 
 % CPE 和 SPE 的重建，主要由 PE 的时间残差 $t^{res}$ 决定，同时也受到电子模型预测的影响，总体上是模型无关的。也就是说，该方法重建的闪烁光 / 切伦科夫光 PE 比例可以反应不同粒子切伦科夫光光产额的不同。
