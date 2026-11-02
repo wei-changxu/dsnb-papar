@@ -169,6 +169,7 @@ $t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在
 
 \begin{equation}
     \mathcal{L} = e^{- \sum_k N_k} \prod_{i=1}^{N_{obs}} \left( \sum_k N_k f_k \right)
+    \label{equ:cs-fit}
 \end{equation}
 
 其中 $k$ 表示 PE 的种类，包括直入射闪烁光、非直入射闪烁光、直入射切伦科夫光、非直入射切伦科夫光、暗噪声共 5 种；$N_k$ 表示每种类型的光的 PE 数，是待拟合参数；$f_k$ 是展宽后的光子时间分布（光强曲线）
@@ -177,6 +178,7 @@ $t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在
 
 \begin{equation}
     f^{CD} (t_{photon}^C) = \delta(t_{photon}^C) \otimes \mathrm{Gauss} (0, \sigma_{tt})
+    \label{equ:chev-tpho}
 \end{equation}
 
 对于闪烁光、非直入射切伦科夫光
@@ -185,7 +187,7 @@ $t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在
     f^k (t_{photon}) = \frac{\tau_r^k + \tau_d^k}{{\tau_d^k}^2} (1 - e^{-t_{photon} / \tau_r^k} e^{-t_{photon} / \tau_d^k} \otimes \mathrm{Gauss} (0, \sigma_{tt}))
 \end{equation}
 
-在模拟研究中，PMT 的 TTS 设定为 FWHM \SI{1}{\nano \second}，所以高斯标准差 $\sigma_{tt} = \SI{0.424}{\nano\second}$，其他参数设置见表 \ref{tab:light-param}
+在模拟研究中，PMT 的 TT 设定为 $\SI{20}{\nano\second}$，TTS 设定为 FWHM \SI{1}{\nano\second}，所以高斯标准差 $\sigma_{tt} = \SI{0.424}{\nano\second}$，其他参数设置见表 \ref{tab:light-param}
 
 \begin{table}[!htb]
     \centering
@@ -202,7 +204,7 @@ $t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在
     \label{tab:light-param}
 \end{table}
 
-图 \ref{fig:e-sd} 展示了直入射闪烁光时间分布，图 \ref{fig:e-cd} 展示了直入射切伦科夫光时间分布。可以看到，\SI{3}{\MeV} 电子直入射闪烁光的展宽光子时间分布成分主要是闪烁光发光时延，由液闪介质决定；直入射切伦科夫光的展宽光子时间分布成分主要是 PMT 渡越时间，由 PMT 结构决定 
+图 \ref{fig:e-sd} 展示了直入射闪烁光时间分布，图 \ref{fig:e-cd} 展示了直入射切伦科夫光时间分布。可以看到，\SI{3}{\MeV} 电子直入射闪烁光的展宽光子时间分布成分主要是闪烁光发光时延，由液闪介质决定；直入射切伦科夫光的展宽光子时间分布成分主要是 PMT 渡越时间，由 PMT 结构决定
 
 \begin{figure}[!htb]
     \centering
@@ -240,9 +242,121 @@ $t_{event}$ 表示事例开始的时间，$t_{transit}$ 表示渡越时间，在
     \label{fig:e-cd}
 \end{figure}
 
-\subsubsection{电子和中子重建效果}    
+图 \ref{fig:beta-3} 展示了一个 \SI{3}{\MeV} 电子的拟合情况
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\linewidth]{figures/sim-recon/beta-3.png}
+    \caption{\SI{3}{\MeV} 电子的拟合情况，该事例 CPE 数真值为 14，拟合结果为 15.4}
+    \label{fig:beta-3}
+\end{figure}
+
+\subsubsection{电子和中子重建效果}
+
+为了评估本拟合方法在 DSNB 探测中的效果，我们着重评估该方法对电子及高能中子快信号的重建效果，以重建 CPE 数量与真值 CPE 数量的差值为评价指标。因此，我们模拟了 \SI{3}{\MeV} 电子和 \SI{25}{\MeV} 中子，其中中子事例的快信号可以分为两类：
+
+\begin{enumerate}
+    \item \textbf{产生切伦科夫光}。中子与 \ce{^{16} O} 发生非弹性散射，产生处于激发态的末态核：
+    
+        \begin{equation}
+            n + \ce{^{16} O} \to n + p + \ce{^{15} N}
+        \end{equation}
+        \begin{equation}
+            n + \ce{^{16} O} \to n + \ce{^{4} He} + \ce{^{12} C}
+        \end{equation}
+
+        末态核退激过程产生一个或多个 $\gamma$，$\gamma$ 散射的电子产生切伦科夫光。
+
+    \item \textbf{不产生切伦科夫光}。中子散射不产生处于激发态的末态核。主要分为两类：与 $\ce{^{16} O}$ 发生非弹性散射，末态粒子沉积能量较低；与 $\ce{^{1} H}$ 发生弹性散射，末态粒子为质子，沉积能量较高。
+\end{enumerate}
+
+\SI{3}{\MeV} 电子和 \SI{25}{\MeV} 中子的重建效果如图 \ref{fig:cs-fit} 所示：
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[\SI{3}{\MeV} 电子重建 CPE 数减真值 CPE 数]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/compare/fit-beta-nonshift-cpe-total.png}
+    }
+    \subfigure[\SI{25}{\MeV} 中子重建 CPE 数减真值 CPE 数，其中红色表示事例中不包含切伦科夫光、蓝色表示实例中包含切伦科夫光]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/compare/fit-neutron-nonshift-cpe-total.png}
+        \label{fig:neutron-cs-fit}
+    }
+    \caption{\SI{3}{\MeV} 电子和 \SI{25}{\MeV} 中子切伦科夫光 PE 数重建效果}
+    \label{fig:cs-fit}
+\end{figure}
+
+其中，电子 $Recon CPE - Truth CPE$ 的均值为 $-0.981$，标准差 $4.42$；中子带切伦科夫光的事例中，$Recon CPE - Truth CPE$ 的均值为 $4.00$，标准差 $14.9$。可见，中子的切伦科夫光重建与电子相比，不仅有较大偏差，也较不稳定。
+
 \subsubsection{中子重建效果不佳的原因}
 
+从上一节中我们发现，在此拟合方法下，中子重建结果明显比电子要差。本节中我们将从 $t_{photon}$ 的重建值和真值入手，分析中子重建效果不佳的原因
+
+首先，我们从 PE 的时间真值中构造展宽的光子时间：$t_{photon}^{smeared} = t_{photon} - (t_{transit} - \bar{t}_{transit})$，其中 $t_{photon}$ 为光子产生的真实时间，$t_{transit}$ 为 PMT 渡越时间，其均值 $\bar{t}_{photon} = \SI{20}{\nano\second}$
+
+对真值中的展宽光子时间，我们应用式 \ref{equ:cs-fit} 进行最大似然拟合，得到对真值光子时间的拟合结果，如图 \ref{fig:cs-truth}
+
+\begin{figure}[!htb]
+    \centering
+    \includegraphics[width=0.45\linewidth]{figures/sim-recon/compare/fit-neutron-truth-cpe-total.png}
+    \caption{\SI{25}{\MeV} 中子对展宽光子时间真值拟合重建效果}
+    \label{fig:cs-truth}
+\end{figure}
+
+我们发现，在对真值光子时间的拟合中：当事例中有切伦科夫光时，CPE 重建结果普遍偏小，经过调查，这些实例中 CPE 大多被重建到 0；当事例中没有切伦科夫光时，CPE 重建结果则与实际情况比较相符。也就是说，无论事例中实际上有无切伦科夫光，对真值光子时间的拟合都倾向于得到无切伦科夫光的结果
+
+\SI{25}{\MeV} 中子的真值光子时间分布，如图 \ref{fig:neutron-tpho-truth}，可以解释这个结果：虽然电子产生切伦科夫光的时间很快，但是高能中子在探测器中散射电子需要经过与 \ce{^{16} O} 的非弹性散射、末态核素退激发、$\gamma$ 康普顿散射，整体时间较长（\SI{10}{\nano\second} 量级），因此电子产生时间主导切伦科夫光光子时间，使其偏离 \SI{0}{\nano\second}。所以，中子的光子时间分布中，没有 \SI{0}{\nano\second} 的切伦科夫光峰值，导致式 \ref{equ:chev-tpho} 无法拟合到切伦科夫光 PE
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-neutron/cs-smear.png}
+    \caption{\SI{25}{\MeV} 中子的展宽光子时间真值分布}
+    \label{fig:neutron-tpho-truth}
+\end{figure}
+
+进一步，我们比较中子事例中的展宽光子时间真值和重建值，如图 \ref{fig:neutron-tpho-overlap}，解释为什么用光子时间重建值拟合结果较差：
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[切伦科夫光光子时间分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-check-neutron/overlap-pho-c.png}
+        \label{fig:neutron-tpho-c}
+    }
+    \subfigure[闪烁光光子时间分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/pe-check-neutron/overlap-pho-s.png}
+        \label{fig:neutron-tpho-s}
+    }
+    \caption{\SI{25}{\MeV} 中子事例的展宽光子时间真值和重建值比较}
+    \label{fig:neutron-tpho-overlap}
+\end{figure}
+
+\paragraph{含切伦科夫光事例}
+
+如图 \ref{fig:neutron-tpho-c}，切伦科夫光光子时间分布的真值峰值在 \SI{2}{\nano\second} 附近，散布较高；但是重建值峰值在 \SI{0}{\nano\second}，散布降低。\textbf{这是因为前一步的顶点重建基于电子模型，一个峰值为 0、散布较低的切伦科夫光光子时间分布更接近电子，能够获得更佳的拟合优度，因此重建算法会找到一个偏离真值的顶点位置，使 PE 的光子时间分布更像电子。}在这种情况下，拟合切伦科夫光 PE 数就不总为 0，造成了图 \ref{fig:cs-truth} 与图 \ref{fig:neutron-cs-fit} 中含切伦科夫光事例 CPE 重建结果的差异
+
+\paragraph{不含切伦科夫光事例}
+
+如图 \ref{fig:neutron-tpho-s}，同理，在事例中没有切伦科夫光的情况下，重建算法会找到一个偏离真值的顶点位置、时间原点，使 PE 的光子时间提前，并且接近形状上接近同时有切伦科夫光和闪烁光的光子时间分布。在这种情况下，光子时间最早的闪烁光 PE，会被拟合为切伦科夫光，导致重建的切伦科夫光非 0。图 \ref{fig:neutron-1296} 展示了一个没有切伦科夫光的事例的光子时间重建值和真值的拟合情况。这个事例的位置真值为 $(-37.7, -23.0, -9.1) \si{\milli\meter}$，重建位置为 $(-77.1, -20.0, -42.2) \si{\milli\meter}$，也就是重建顶点位置相比真值，沿 -x 方向和 -z 方向更靠近 PMT 所在平面，在径向上远离了 \SI{90}{\milli\meter}，这导致该方向上的 PMT 的 PE 计算的 TOF 相比真值偏低，计算的光子时间相比真值提前。从图中可以看出，重建的光子时间分布明显提前，并且呈现出切伦科夫光的峰值，导致 CPE 数重建失误
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[光子时间重建值拟合]{
+        \includegraphics[width=0.75\linewidth]{figures/sim-recon/neutron-1296.png}
+    }
+    \subfigure[光子时间真值拟合]{
+        \includegraphics[width=0.75\linewidth]{figures/sim-recon/neutron-1296-truth.png}
+    }
+    \caption{\SI{25}{\MeV} 中子事例的光子时间重建值和真值的拟合情况。该事例中，中子在 \SI{0.39}{\nano\second}、\SI{2.82}{\nano\second}、\SI{6.95}{\nano\second}，分别与 \ce{^{1} H} 发生弹性散射，产生 \SI{16.6}{\MeV}、\SI{6.92}{\MeV}、\SI{1.20}{\MeV} 的三个质子。事例全程无切伦科夫光 PE}
+    \label{fig:neutron-1296}
+\end{figure}
+
+另外，图 \ref{fig:neutron-cs-fit} 中，不含切伦科夫光的中子事例，重建 CPE 出现两个峰值，这是因为这些错误重建的 CPE 来自错误提前的 SPE，因此重建 CPE 的数值与 SPE 的数值正相关，也和事例沉积能量正相关，如图 \ref{fig:neutron-cpe-e}。因为这些无切伦科夫光的中子包含低能的非弹性散射和高能的弹性散射两类，所以重建 CPE 也出现两个峰值
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.45\linewidth]{figures/sim-recon/cpe-e.png}
+    \caption{无切伦科夫光的 \SI{25}{\MeV} 中子事例重建 CPE 与事例沉积能量二维分布}
+    \label{fig:neutron-cpe-e}
+\end{figure}
 
 \subsection{CPE and SPE reconstruction}
 % 本研究采用的
