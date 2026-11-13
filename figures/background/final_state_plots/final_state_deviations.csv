@@ -1,0 +1,577 @@
+﻿flavor,interaction,final_state,isotope,mean_ratio_percent,deviation_percent
+nue,NC,NC,Li6,96.75375,-0.386289937083
+nue,NC,$N+\nu_e+n$,Li6,32.80125,2.80096032926
+nue,NC,$N+\nu_e+n's$,Li6,4.42125,-26.4913768731
+nue,NC,$N+\nu_e+p$,Li6,29.1375,23.758043758
+nue,NC,$N+\nu_e+p's$,Li6,3.34,3.59281437126
+nue,NC,$N+\nu_e+n+p$,Li6,9.9675,27.9157261099
+nue,NC,$N+\nu_e+n's+p$,Li6,4.95125,-54.1529916688
+nue,NC,$N+\nu_e+n+p's$,Li6,4.02375,-46.5672569121
+nue,NC,$N+\nu_e+n's+p's$,Li6,7.6775,-70.0423314881
+nue,NC,$N+\nu_e+$ others,Li6,0.43375,-3.17002881844
+nue,NC,NC,Li7,96.75375,-0.706690955131
+nue,NC,$N+\nu_e+n$,Li7,32.80125,16.6418962692
+nue,NC,$N+\nu_e+n's$,Li7,4.42125,-9.07548770144
+nue,NC,$N+\nu_e+p$,Li7,29.1375,-1.26126126126
+nue,NC,$N+\nu_e+p's$,Li7,3.34,-43.4131736527
+nue,NC,$N+\nu_e+n+p$,Li7,9.9675,3.53649360421
+nue,NC,$N+\nu_e+n's+p$,Li7,4.95125,6.63973744004
+nue,NC,$N+\nu_e+n+p's$,Li7,4.02375,-22.7089158124
+nue,NC,$N+\nu_e+n's+p's$,Li7,7.6775,-47.7694562032
+nue,NC,$N+\nu_e+$ others,Li7,0.43375,-5.47550432277
+nue,NC,NC,C12,96.75375,-0.44830303735
+nue,NC,$N+\nu_e+n$,C12,32.80125,-2.80858199002
+nue,NC,$N+\nu_e+n's$,C12,4.42125,-25.5866553576
+nue,NC,$N+\nu_e+p$,C12,29.1375,14.8348348348
+nue,NC,$N+\nu_e+p's$,C12,3.34,-6.58682634731
+nue,NC,$N+\nu_e+n+p$,C12,9.9675,-13.5189365438
+nue,NC,$N+\nu_e+n's+p$,C12,4.95125,-27.4930573088
+nue,NC,$N+\nu_e+n+p's$,C12,4.02375,-2.57844050947
+nue,NC,$N+\nu_e+n's+p's$,C12,7.6775,0.293064148486
+nue,NC,$N+\nu_e+$ others,C12,0.43375,70.6051873199
+nue,NC,NC,C13,96.75375,0.00645969794453
+nue,NC,$N+\nu_e+n$,C13,32.80125,8.65439579284
+nue,NC,$N+\nu_e+n's$,C13,4.42125,-17.8965224767
+nue,NC,$N+\nu_e+p$,C13,29.1375,7.90218790219
+nue,NC,$N+\nu_e+p's$,C13,3.34,-26.9461077844
+nue,NC,$N+\nu_e+n+p$,C13,9.9675,-19.337848006
+nue,NC,$N+\nu_e+n's+p$,C13,4.95125,-10.3256753345
+nue,NC,$N+\nu_e+n+p's$,C13,4.02375,-14.5076110593
+nue,NC,$N+\nu_e+n's+p's$,C13,7.6775,-7.39172907848
+nue,NC,$N+\nu_e+$ others,C13,0.43375,33.7175792507
+nue,NC,NC,O16,96.75375,0.244176582303
+nue,NC,$N+\nu_e+n$,O16,32.80125,3.01436683053
+nue,NC,$N+\nu_e+n's$,O16,4.42125,-8.17076618603
+nue,NC,$N+\nu_e+p$,O16,29.1375,-1.5015015015
+nue,NC,$N+\nu_e+p's$,O16,3.34,10.7784431138
+nue,NC,$N+\nu_e+n+p$,O16,9.9675,-2.08176573865
+nue,NC,$N+\nu_e+n's+p$,O16,4.95125,-12.7493057309
+nue,NC,$N+\nu_e+n+p's$,O16,4.02375,1.89499844672
+nue,NC,$N+\nu_e+n's+p's$,O16,7.6775,8.88961250407
+nue,NC,$N+\nu_e+$ others,O16,0.43375,-53.8904899135
+nue,NC,NC,O18,96.75375,-0.417296487216
+nue,NC,$N+\nu_e+n$,O18,32.80125,12.0079265272
+nue,NC,$N+\nu_e+n's$,O18,4.42125,15.5781735934
+nue,NC,$N+\nu_e+p$,O18,29.1375,-16.1561561562
+nue,NC,$N+\nu_e+p's$,O18,3.34,-21.2574850299
+nue,NC,$N+\nu_e+n+p$,O18,9.9675,-8.30198143968
+nue,NC,$N+\nu_e+n's+p$,O18,4.95125,24.6149962131
+nue,NC,$N+\nu_e+n+p's$,O18,4.02375,-6.30630630631
+nue,NC,$N+\nu_e+n's+p's$,O18,7.6775,6.41484858352
+nue,NC,$N+\nu_e+$ others,O18,0.43375,-56.1959654179
+nue,NC,NC,Cl35,96.75375,0.915985168534
+nue,NC,$N+\nu_e+n$,Cl35,32.80125,-22.9602530391
+nue,NC,$N+\nu_e+n's$,Cl35,4.42125,30.05371784
+nue,NC,$N+\nu_e+p$,Cl35,29.1375,-11.2827112827
+nue,NC,$N+\nu_e+p's$,Cl35,3.34,49.7005988024
+nue,NC,$N+\nu_e+n+p$,Cl35,9.9675,6.74692751442
+nue,NC,$N+\nu_e+n's+p$,Cl35,4.95125,32.8957334007
+nue,NC,$N+\nu_e+n+p's$,Cl35,4.02375,50.8543025784
+nue,NC,$N+\nu_e+n's+p's$,Cl35,7.6775,56.6916313904
+nue,NC,$N+\nu_e+$ others,Cl35,0.43375,3.74639769452
+nue,NC,NC,Cl37,96.75375,0.791958967999
+nue,NC,$N+\nu_e+n$,Cl37,32.80125,-17.3507107199
+nue,NC,$N+\nu_e+n's$,Cl37,4.42125,41.5889171614
+nue,NC,$N+\nu_e+p$,Cl37,29.1375,-16.2934362934
+nue,NC,$N+\nu_e+p's$,Cl37,3.34,34.1317365269
+nue,NC,$N+\nu_e+n+p$,Cl37,9.9675,5.04138449962
+nue,NC,$N+\nu_e+n's+p$,Cl37,4.95125,40.5705629891
+nue,NC,$N+\nu_e+n+p's$,Cl37,4.02375,39.9192295744
+nue,NC,$N+\nu_e+n's+p's$,Cl37,7.6775,52.9143601433
+nue,NC,$N+\nu_e+$ others,Cl37,0.43375,10.6628242075
+nue,CC,CC,Li6,3.24625,11.5132845591
+nue,CC,$N+e^-+p$,Li6,1.57,32.4840764331
+nue,CC,$N+e^-+p's$,Li6,0.44375,41.9718309859
+nue,CC,$N+e^-+n+p$,Li6,0.3025,42.1487603306
+nue,CC,$N+e^-+n's+p$,Li6,0.07625,-60.6557377049
+nue,CC,$N+e^-+n+p's$,Li6,0.30375,-20.987654321
+nue,CC,$N+e^-+n's+p's$,Li6,0.2625,-77.1428571429
+nue,CC,$N+e^-+$ others,Li6,0.2875,-47.8260869565
+nue,CC,CC,Li7,3.24625,21.0627647285
+nue,CC,$N+e^-+p$,Li7,1.57,38.8535031847
+nue,CC,$N+e^-+p's$,Li7,0.44375,23.9436619718
+nue,CC,$N+e^-+n+p$,Li7,0.3025,2.47933884298
+nue,CC,$N+e^-+n's+p$,Li7,0.07625,-8.19672131148
+nue,CC,$N+e^-+n+p's$,Li7,0.30375,38.2716049383
+nue,CC,$N+e^-+n's+p's$,Li7,0.2625,-12.380952381
+nue,CC,$N+e^-+$ others,Li7,0.2875,-40.8695652174
+nue,CC,CC,C12,3.24625,13.3615710435
+nue,CC,$N+e^-+p$,C12,1.57,8.28025477707
+nue,CC,$N+e^-+p's$,C12,0.44375,14.9295774648
+nue,CC,$N+e^-+n+p$,C12,0.3025,2.47933884298
+nue,CC,$N+e^-+n's+p$,C12,0.07625,-21.3114754098
+nue,CC,$N+e^-+n+p's$,C12,0.30375,5.34979423868
+nue,CC,$N+e^-+n's+p's$,C12,0.2625,18.0952380952
+nue,CC,$N+e^-+$ others,C12,0.2875,63.4782608696
+nue,CC,CC,C13,3.24625,-0.192529842126
+nue,CC,$N+e^-+p$,C13,1.57,-5.73248407643
+nue,CC,$N+e^-+p's$,C13,0.44375,8.16901408451
+nue,CC,$N+e^-+n+p$,C13,0.3025,-10.7438016529
+nue,CC,$N+e^-+n's+p$,C13,0.07625,18.0327868852
+nue,CC,$N+e^-+n+p's$,C13,0.30375,25.1028806584
+nue,CC,$N+e^-+n's+p's$,C13,0.2625,-0.952380952381
+nue,CC,$N+e^-+$ others,C13,0.2875,-2.60869565217
+nue,CC,CC,O16,3.24625,-7.27762803235
+nue,CC,$N+e^-+p$,O16,1.57,-11.4649681529
+nue,CC,$N+e^-+p's$,O16,0.44375,-7.60563380282
+nue,CC,$N+e^-+n+p$,O16,0.3025,12.3966942149
+nue,CC,$N+e^-+n's+p$,O16,0.07625,4.91803278689
+nue,CC,$N+e^-+n+p's$,O16,0.30375,-24.2798353909
+nue,CC,$N+e^-+n's+p's$,O16,0.2625,-23.8095238095
+nue,CC,$N+e^-+$ others,O16,0.2875,25.2173913043
+nue,CC,CC,O18,3.24625,12.4374278013
+nue,CC,$N+e^-+p$,O18,1.57,14.6496815287
+nue,CC,$N+e^-+p's$,O18,0.44375,-18.8732394366
+nue,CC,$N+e^-+n+p$,O18,0.3025,9.09090909091
+nue,CC,$N+e^-+n's+p$,O18,0.07625,18.0327868852
+nue,CC,$N+e^-+n+p's$,O18,0.30375,15.2263374486
+nue,CC,$N+e^-+n's+p's$,O18,0.2625,33.3333333333
+nue,CC,$N+e^-+$ others,O18,0.2875,28.6956521739
+nue,CC,CC,Cl35,3.24625,-27.3007316134
+nue,CC,$N+e^-+p$,Cl35,1.57,-40.127388535
+nue,CC,$N+e^-+p's$,Cl35,0.44375,-16.6197183099
+nue,CC,$N+e^-+n+p$,Cl35,0.3025,-53.7190082645
+nue,CC,$N+e^-+n's+p$,Cl35,0.07625,-60.6557377049
+nue,CC,$N+e^-+n+p's$,Cl35,0.30375,-4.52674897119
+nue,CC,$N+e^-+n's+p's$,Cl35,0.2625,33.3333333333
+nue,CC,$N+e^-+$ others,Cl35,0.2875,-16.5217391304
+nue,CC,CC,Cl37,3.24625,-23.6041586446
+nue,CC,$N+e^-+p$,Cl37,1.57,-36.9426751592
+nue,CC,$N+e^-+p's$,Cl37,0.44375,-45.9154929577
+nue,CC,$N+e^-+n+p$,Cl37,0.3025,-4.13223140496
+nue,CC,$N+e^-+n's+p$,Cl37,0.07625,109.836065574
+nue,CC,$N+e^-+n+p's$,Cl37,0.30375,-34.1563786008
+nue,CC,$N+e^-+n's+p's$,Cl37,0.2625,29.5238095238
+nue,CC,$N+e^-+$ others,Cl37,0.2875,-9.5652173913
+nuebar,NC,NC,Li6,96.08,-1.32181515404
+nuebar,NC,$N+\bar{\nu}_e+n$,Li6,28.89375,-1.29353233831
+nuebar,NC,$N+\bar{\nu}_e+n's$,Li6,3.7725,-21.5374420146
+nuebar,NC,$N+\bar{\nu}_e+p$,Li6,32.6825,16.7597338025
+nuebar,NC,$N+\bar{\nu}_e+p's$,Li6,3.6075,7.27650727651
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Li6,9.5125,45.4927726675
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Li6,4.74875,-55.5672545407
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Li6,4.22875,-38.5161099616
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Li6,7.79,-74.0693196406
+nuebar,NC,$N+\bar{\nu}_e+$ others,Li6,0.84375,-13.4814814815
+nuebar,NC,NC,Li7,96.08,-0.9367194005
+nuebar,NC,$N+\bar{\nu}_e+n$,Li7,28.89375,15.457495133
+nuebar,NC,$N+\bar{\nu}_e+n's$,Li7,3.7725,-8.54870775348
+nuebar,NC,$N+\bar{\nu}_e+p$,Li7,32.6825,-0.099441597185
+nuebar,NC,$N+\bar{\nu}_e+p's$,Li7,3.6075,-41.5107415107
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Li7,9.5125,1.02496714849
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Li7,4.74875,15.8199526191
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Li7,4.22875,-21.9627549512
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Li7,7.79,-41.9768934531
+nuebar,NC,$N+\bar{\nu}_e+$ others,Li7,0.84375,-19.4074074074
+nuebar,NC,NC,C12,96.08,-1.11365528726
+nuebar,NC,$N+\bar{\nu}_e+n$,C12,28.89375,-6.24269954575
+nuebar,NC,$N+\bar{\nu}_e+n's$,C12,3.7725,-29.4897282969
+nuebar,NC,$N+\bar{\nu}_e+p$,C12,32.6825,12.0171345521
+nuebar,NC,$N+\bar{\nu}_e+p's$,C12,3.6075,-9.63270963271
+nuebar,NC,$N+\bar{\nu}_e+n+p$,C12,9.5125,-14.7437582129
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,C12,4.74875,-17.8731245064
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,C12,4.22875,-11.7942654449
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,C12,7.79,4.87804878049
+nuebar,NC,$N+\bar{\nu}_e+$ others,C12,0.84375,75.4074074074
+nuebar,NC,NC,C13,96.08,-0.166527893422
+nuebar,NC,$N+\bar{\nu}_e+n$,C13,28.89375,8.01643954142
+nuebar,NC,$N+\bar{\nu}_e+n's$,C13,3.7725,-23.9231278993
+nuebar,NC,$N+\bar{\nu}_e+p$,C13,32.6825,7.06035340014
+nuebar,NC,$N+\bar{\nu}_e+p's$,C13,3.6075,-34.0263340263
+nuebar,NC,$N+\bar{\nu}_e+n+p$,C13,9.5125,-20.3153745072
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,C13,4.74875,-5.02763885233
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,C13,4.22875,-20.3074194502
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,C13,7.79,2.56739409499
+nuebar,NC,$N+\bar{\nu}_e+$ others,C13,0.84375,20.8888888889
+nuebar,NC,NC,O16,96.08,0.551623646961
+nuebar,NC,$N+\bar{\nu}_e+n$,O16,28.89375,4.14016872161
+nuebar,NC,$N+\bar{\nu}_e+n's$,O16,3.7725,-7.22332670643
+nuebar,NC,$N+\bar{\nu}_e+p$,O16,32.6825,0.60429893674
+nuebar,NC,$N+\bar{\nu}_e+p's$,O16,3.6075,-1.0395010395
+nuebar,NC,$N+\bar{\nu}_e+n+p$,O16,9.5125,-7.38501971091
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,O16,4.74875,-6.29112924454
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,O16,4.22875,7.8332840674
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,O16,7.79,2.31065468549
+nuebar,NC,$N+\bar{\nu}_e+$ others,O16,0.84375,-7.55555555556
+nuebar,NC,NC,O18,96.08,0.5620316403
+nuebar,NC,$N+\bar{\nu}_e+n$,O18,28.89375,12.8271685053
+nuebar,NC,$N+\bar{\nu}_e+n's$,O18,3.7725,26.1762756793
+nuebar,NC,$N+\bar{\nu}_e+p$,O18,32.6825,-11.0839134093
+nuebar,NC,$N+\bar{\nu}_e+p's$,O18,3.6075,-15.4539154539
+nuebar,NC,$N+\bar{\nu}_e+n+p$,O18,9.5125,-12.3258869908
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,O18,4.74875,15.188207423
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,O18,4.22875,0.97546556311
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,O18,7.79,9.24261874198
+nuebar,NC,$N+\bar{\nu}_e+$ others,O18,0.84375,-33.6296296296
+nuebar,NC,NC,Cl35,96.08,1.15528726062
+nuebar,NC,$N+\bar{\nu}_e+n$,Cl35,28.89375,-18.4944841012
+nuebar,NC,$N+\bar{\nu}_e+n's$,Cl35,3.7725,32.8031809145
+nuebar,NC,$N+\bar{\nu}_e+p$,Cl35,32.6825,-10.5025625335
+nuebar,NC,$N+\bar{\nu}_e+p's$,Cl35,3.6075,54.1233541234
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Cl35,9.5125,1.76084099869
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Cl35,4.74875,20.8739141879
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Cl35,4.22875,43.5412355897
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Cl35,7.79,47.6251604621
+nuebar,NC,$N+\bar{\nu}_e+$ others,Cl35,0.84375,-1.62962962963
+nuebar,NC,NC,Cl37,96.08,1.26977518734
+nuebar,NC,$N+\bar{\nu}_e+n$,Cl37,28.89375,-14.4105559161
+nuebar,NC,$N+\bar{\nu}_e+n's$,Cl37,3.7725,31.7428760769
+nuebar,NC,$N+\bar{\nu}_e+p$,Cl37,32.6825,-14.7556031515
+nuebar,NC,$N+\bar{\nu}_e+p's$,Cl37,3.6075,40.2633402633
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Cl37,9.5125,6.4914586071
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Cl37,4.74875,32.8770729139
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Cl37,4.22875,40.2305645876
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Cl37,7.79,49.4223363286
+nuebar,NC,$N+\bar{\nu}_e+$ others,Cl37,0.84375,-20.5925925926
+nuebar,CC,CC,Li6,3.92,32.3979591837
+nuebar,CC,$N+e^++n$,Li6,2.36125,57.1201694018
+nuebar,CC,$N+e^++n's$,Li6,0.53625,24.9417249417
+nuebar,CC,$N+e^++n+p$,Li6,0.2575,66.9902912621
+nuebar,CC,$N+e^++n's+p$,Li6,0.31875,-30.9803921569
+nuebar,CC,$N+e^++n+p's$,Li6,0.03875,-48.3870967742
+nuebar,CC,$N+e^++n's+p's$,Li6,0.21875,-72.5714285714
+nuebar,CC,$N+e^++$ others,Li6,0.18875,-57.6158940397
+nuebar,CC,CC,Li7,3.92,22.9591836735
+nuebar,CC,$N+e^++n$,Li7,2.36125,40.1799894124
+nuebar,CC,$N+e^++n's$,Li7,0.53625,21.2121212121
+nuebar,CC,$N+e^++n+p$,Li7,0.2575,-10.6796116505
+nuebar,CC,$N+e^++n's+p$,Li7,0.31875,31.7647058824
+nuebar,CC,$N+e^++n+p's$,Li7,0.03875,-74.1935483871
+nuebar,CC,$N+e^++n's+p's$,Li7,0.21875,-54.2857142857
+nuebar,CC,$N+e^++$ others,Li7,0.18875,-47.0198675497
+nuebar,CC,CC,C12,3.92,27.2959183673
+nuebar,CC,$N+e^++n$,C12,2.36125,24.0868184224
+nuebar,CC,$N+e^++n's$,C12,0.53625,8.15850815851
+nuebar,CC,$N+e^++n+p$,C12,0.2575,47.572815534
+nuebar,CC,$N+e^++n's+p$,C12,0.31875,12.9411764706
+nuebar,CC,$N+e^++n+p's$,C12,0.03875,80.6451612903
+nuebar,CC,$N+e^++n's+p's$,C12,0.21875,87.4285714286
+nuebar,CC,$N+e^++$ others,C12,0.18875,37.7483443709
+nuebar,CC,CC,C13,3.92,4.08163265306
+nuebar,CC,$N+e^++n$,C13,2.36125,2.06458443621
+nuebar,CC,$N+e^++n's$,C13,0.53625,15.6177156177
+nuebar,CC,$N+e^++n+p$,C13,0.2575,-2.91262135922
+nuebar,CC,$N+e^++n's+p$,C13,0.31875,6.66666666667
+nuebar,CC,$N+e^++n+p's$,C13,0.03875,29.0322580645
+nuebar,CC,$N+e^++n's+p's$,C13,0.21875,-31.4285714286
+nuebar,CC,$N+e^++$ others,C13,0.18875,37.7483443709
+nuebar,CC,CC,O16,3.92,-13.5204081633
+nuebar,CC,$N+e^++n$,O16,2.36125,-22.9221810482
+nuebar,CC,$N+e^++n's$,O16,0.53625,-6.75990675991
+nuebar,CC,$N+e^++n+p$,O16,0.2575,-22.3300970874
+nuebar,CC,$N+e^++n's+p$,O16,0.31875,12.9411764706
+nuebar,CC,$N+e^++n+p's$,O16,0.03875,-22.5806451613
+nuebar,CC,$N+e^++n's+p's$,O16,0.21875,18.8571428571
+nuebar,CC,$N+e^++$ others,O16,0.18875,16.5562913907
+nuebar,CC,CC,O18,3.92,-13.7755102041
+nuebar,CC,$N+e^++n$,O18,2.36125,-12.7580730545
+nuebar,CC,$N+e^++n's$,O18,0.53625,-21.6783216783
+nuebar,CC,$N+e^++n+p$,O18,0.2575,-22.3300970874
+nuebar,CC,$N+e^++n's+p$,O18,0.31875,-24.7058823529
+nuebar,CC,$N+e^++n+p's$,O18,0.03875,-22.5806451613
+nuebar,CC,$N+e^++n's+p's$,O18,0.21875,-4
+nuebar,CC,$N+e^++$ others,O18,0.18875,16.5562913907
+nuebar,CC,CC,Cl35,3.92,-28.3163265306
+nuebar,CC,$N+e^++n$,Cl35,2.36125,-42.403388036
+nuebar,CC,$N+e^++n's$,Cl35,0.53625,-17.9487179487
+nuebar,CC,$N+e^++n+p$,Cl35,0.2575,-53.3980582524
+nuebar,CC,$N+e^++n's+p$,Cl35,0.31875,12.9411764706
+nuebar,CC,$N+e^++n+p's$,Cl35,0.03875,29.0322580645
+nuebar,CC,$N+e^++n's+p's$,Cl35,0.21875,28
+nuebar,CC,$N+e^++$ others,Cl35,0.18875,5.96026490066
+nuebar,CC,CC,Cl37,3.92,-31.1224489796
+nuebar,CC,$N+e^++n$,Cl37,2.36125,-45.3679195341
+nuebar,CC,$N+e^++n's$,Cl37,0.53625,-23.5431235431
+nuebar,CC,$N+e^++n+p$,Cl37,0.2575,-2.91262135922
+nuebar,CC,$N+e^++n's+p$,Cl37,0.31875,-21.568627451
+nuebar,CC,$N+e^++n+p's$,Cl37,0.03875,29.0322580645
+nuebar,CC,$N+e^++n's+p's$,Cl37,0.21875,28
+nuebar,CC,$N+e^++$ others,Cl37,0.18875,-9.93377483444
+numu,NC,NC,Li6,75.21875,-5.87453261321
+numu,NC,$N+\nu_\mu+n$,Li6,25.4025,-2.92294065545
+numu,NC,$N+\nu_\mu+n's$,Li6,3.41875,-35.3564899452
+numu,NC,$N+\nu_\mu+p$,Li6,22.90625,15.514324693
+numu,NC,$N+\nu_\mu+p's$,Li6,2.58125,1.88861985472
+numu,NC,$N+\nu_\mu+n+p$,Li6,7.6375,27.3977086743
+numu,NC,$N+\nu_\mu+n's+p$,Li6,3.77875,-56.0701290109
+numu,NC,$N+\nu_\mu+n+p's$,Li6,3.1875,-47.6078431373
+numu,NC,$N+\nu_\mu+n's+p's$,Li6,6.00875,-74.7035573123
+numu,NC,$N+\nu_\mu+$ others,Li6,0.2975,-12.6050420168
+numu,NC,NC,Li7,75.21875,-9.02534275031
+numu,NC,$N+\nu_\mu+n$,Li7,25.4025,6.21001869895
+numu,NC,$N+\nu_\mu+n's$,Li7,3.41875,-19.5612431444
+numu,NC,$N+\nu_\mu+p$,Li7,22.90625,-8.06002728513
+numu,NC,$N+\nu_\mu+p's$,Li7,2.58125,-47.3123486683
+numu,NC,$N+\nu_\mu+n+p$,Li7,7.6375,-6.90671031097
+numu,NC,$N+\nu_\mu+n's+p$,Li7,3.77875,-3.67184915647
+numu,NC,$N+\nu_\mu+n+p's$,Li7,3.1875,-28.4705882353
+numu,NC,$N+\nu_\mu+n's+p's$,Li7,6.00875,-47.5764510089
+numu,NC,$N+\nu_\mu+$ others,Li7,0.2975,-66.3865546218
+numu,NC,NC,C12,75.21875,0.0415454923141
+numu,NC,$N+\nu_\mu+n$,C12,25.4025,-1.15146147033
+numu,NC,$N+\nu_\mu+n's$,C12,3.41875,-27.1663619744
+numu,NC,$N+\nu_\mu+p$,C12,22.90625,18.4392905866
+numu,NC,$N+\nu_\mu+p's$,C12,2.58125,-5.08474576271
+numu,NC,$N+\nu_\mu+n+p$,C12,7.6375,-19.8690671031
+numu,NC,$N+\nu_\mu+n's+p$,C12,3.77875,-26.4306979821
+numu,NC,$N+\nu_\mu+n+p's$,C12,3.1875,-4.94117647059
+numu,NC,$N+\nu_\mu+n's+p's$,C12,6.00875,-8.13397129187
+numu,NC,$N+\nu_\mu+$ others,C12,0.2975,108.403361345
+numu,NC,NC,C13,75.21875,-0.995429995845
+numu,NC,$N+\nu_\mu+n$,C13,25.4025,7.35163861825
+numu,NC,$N+\nu_\mu+n's$,C13,3.41875,-24.533820841
+numu,NC,$N+\nu_\mu+p$,C13,22.90625,8.66030013643
+numu,NC,$N+\nu_\mu+p's$,C13,2.58125,-31.0411622276
+numu,NC,$N+\nu_\mu+n+p$,C13,7.6375,-20.1309328969
+numu,NC,$N+\nu_\mu+n's+p$,C13,3.77875,-12.4048957989
+numu,NC,$N+\nu_\mu+n+p's$,C13,3.1875,-24.7058823529
+numu,NC,$N+\nu_\mu+n's+p's$,C13,6.00875,-2.64198044518
+numu,NC,$N+\nu_\mu+$ others,C13,0.2975,-2.52100840336
+numu,NC,NC,O16,75.21875,1.71665974242
+numu,NC,$N+\nu_\mu+n$,O16,25.4025,5.85572286192
+numu,NC,$N+\nu_\mu+n's$,O16,3.41875,-4.93601462523
+numu,NC,$N+\nu_\mu+p$,O16,22.90625,1.80627557981
+numu,NC,$N+\nu_\mu+p's$,O16,2.58125,-1.598062954
+numu,NC,$N+\nu_\mu+n+p$,O16,7.6375,-4.54991816694
+numu,NC,$N+\nu_\mu+n's+p$,O16,3.77875,-13.463446907
+numu,NC,$N+\nu_\mu+n+p's$,O16,3.1875,0.705882352941
+numu,NC,$N+\nu_\mu+n's+p's$,O16,6.00875,7.34345745787
+numu,NC,$N+\nu_\mu+$ others,O16,0.2975,-2.52100840336
+numu,NC,NC,O18,75.21875,-0.503531366847
+numu,NC,$N+\nu_\mu+n$,O18,25.4025,10.1072729062
+numu,NC,$N+\nu_\mu+n's$,O18,3.41875,18.4643510055
+numu,NC,$N+\nu_\mu+p$,O18,22.90625,-16.136425648
+numu,NC,$N+\nu_\mu+p's$,O18,2.58125,-19.8062953995
+numu,NC,$N+\nu_\mu+n+p$,O18,7.6375,-5.59738134206
+numu,NC,$N+\nu_\mu+n's+p$,O18,3.77875,23.3212041019
+numu,NC,$N+\nu_\mu+n+p's$,O18,3.1875,-7.45098039216
+numu,NC,$N+\nu_\mu+n's+p's$,O18,6.00875,7.34345745787
+numu,NC,$N+\nu_\mu+$ others,O18,0.2975,-9.24369747899
+numu,NC,NC,Cl35,75.21875,7.65932696302
+numu,NC,$N+\nu_\mu+n$,Cl35,25.4025,-14.3391398484
+numu,NC,$N+\nu_\mu+n's$,Cl35,3.41875,37.7696526508
+numu,NC,$N+\nu_\mu+p$,Cl35,22.90625,-7.84174624829
+numu,NC,$N+\nu_\mu+p's$,Cl35,2.58125,68.9104116223
+numu,NC,$N+\nu_\mu+n+p$,Cl35,7.6375,13.2569558101
+numu,NC,$N+\nu_\mu+n's+p$,Cl35,3.77875,36.553092954
+numu,NC,$N+\nu_\mu+n+p's$,Cl35,3.1875,63.137254902
+numu,NC,$N+\nu_\mu+n's+p's$,Cl35,6.00875,63.42833368
+numu,NC,$N+\nu_\mu+$ others,Cl35,0.2975,-29.4117647059
+numu,NC,NC,Cl37,75.21875,6.98130452846
+numu,NC,$N+\nu_\mu+n$,Cl37,25.4025,-11.1111111111
+numu,NC,$N+\nu_\mu+n's$,Cl37,3.41875,55.3199268739
+numu,NC,$N+\nu_\mu+p$,Cl37,22.90625,-12.3819918145
+numu,NC,$N+\nu_\mu+p's$,Cl37,2.58125,34.0435835351
+numu,NC,$N+\nu_\mu+n+p$,Cl37,7.6375,16.3993453355
+numu,NC,$N+\nu_\mu+n's+p$,Cl37,3.77875,52.1667217995
+numu,NC,$N+\nu_\mu+n+p's$,Cl37,3.1875,49.3333333333
+numu,NC,$N+\nu_\mu+n's+p's$,Cl37,6.00875,54.9407114625
+numu,NC,$N+\nu_\mu+$ others,Cl37,0.2975,14.2857142857
+numu,CC,CC,Li6,24.78125,17.8310214376
+numu,CC,$N+\mu^-+p$,Li6,12.95625,39.7780993729
+numu,CC,$N+\mu^-+p's$,Li6,3.695,43.4370771313
+numu,CC,$N+\mu^-+n+p$,Li6,2.56875,8.22384428224
+numu,CC,$N+\mu^-+n's+p$,Li6,0.61125,-59.100204499
+numu,CC,$N+\mu^-+n+p's$,Li6,2.4025,-28.4079084287
+numu,CC,$N+\mu^-+n's+p's$,Li6,2.4275,-60.8650875386
+numu,CC,$N+\mu^-+$ others,Li6,0.12,-25
+numu,CC,CC,Li7,24.78125,27.394703657
+numu,CC,$N+\mu^-+p$,Li7,12.95625,44.1003376749
+numu,CC,$N+\mu^-+p's$,Li7,3.695,13.9377537212
+numu,CC,$N+\mu^-+n+p$,Li7,2.56875,21.4598540146
+numu,CC,$N+\mu^-+n's+p$,Li7,0.61125,9.61145194274
+numu,CC,$N+\mu^-+n+p's$,Li7,2.4025,24.4536940687
+numu,CC,$N+\mu^-+n's+p's$,Li7,2.4275,-25.4376930999
+numu,CC,$N+\mu^-+$ others,Li7,0.12,-16.6666666667
+numu,CC,CC,C12,24.78125,-0.126103404792
+numu,CC,$N+\mu^-+p$,C12,12.95625,-3.59864930053
+numu,CC,$N+\mu^-+p's$,C12,3.695,8.5250338295
+numu,CC,$N+\mu^-+n+p$,C12,2.56875,-1.11922141119
+numu,CC,$N+\mu^-+n's+p$,C12,0.61125,-26.3803680982
+numu,CC,$N+\mu^-+n+p's$,C12,2.4025,2.80957336108
+numu,CC,$N+\mu^-+n's+p's$,C12,2.4275,8.75386199794
+numu,CC,$N+\mu^-+$ others,C12,0.12,25
+numu,CC,CC,C13,24.78125,3.02143757881
+numu,CC,$N+\mu^-+p$,C13,12.95625,4.50554751568
+numu,CC,$N+\mu^-+p's$,C13,3.695,-6.3599458728
+numu,CC,$N+\mu^-+n+p$,C13,2.56875,-1.11922141119
+numu,CC,$N+\mu^-+n's+p$,C13,0.61125,11.2474437628
+numu,CC,$N+\mu^-+n+p's$,C13,2.4025,11.5504682622
+numu,CC,$N+\mu^-+n's+p's$,C13,2.4275,4.22245108136
+numu,CC,$N+\mu^-+$ others,C13,0.12,-16.6666666667
+numu,CC,CC,O16,24.78125,-5.210592686
+numu,CC,$N+\mu^-+p$,O16,12.95625,-5.29667149059
+numu,CC,$N+\mu^-+p's$,O16,3.695,1.75913396482
+numu,CC,$N+\mu^-+n+p$,O16,2.56875,-14.7445255474
+numu,CC,$N+\mu^-+n's+p$,O16,0.61125,-23.1083844581
+numu,CC,$N+\mu^-+n+p's$,O16,2.4025,-4.26638917794
+numu,CC,$N+\mu^-+n's+p's$,O16,2.4275,-0.308959835221
+numu,CC,$N+\mu^-+$ others,O16,0.12,-33.3333333333
+numu,CC,CC,O18,24.78125,1.52837326608
+numu,CC,$N+\mu^-+p$,O18,12.95625,-8.53835021708
+numu,CC,$N+\mu^-+p's$,O18,3.695,-10.9607577808
+numu,CC,$N+\mu^-+n+p$,O18,2.56875,13.6739659367
+numu,CC,$N+\mu^-+n's+p$,O18,0.61125,68.5071574642
+numu,CC,$N+\mu^-+n+p's$,O18,2.4025,11.1342351717
+numu,CC,$N+\mu^-+n's+p's$,O18,2.4275,34.2945417096
+numu,CC,$N+\mu^-+$ others,O18,0.12,16.6666666667
+numu,CC,CC,Cl35,24.78125,-23.2484237074
+numu,CC,$N+\mu^-+p$,Cl35,12.95625,-32.4650265316
+numu,CC,$N+\mu^-+p's$,Cl35,3.695,-24.2219215156
+numu,CC,$N+\mu^-+n+p$,Cl35,2.56875,-20.1946472019
+numu,CC,$N+\mu^-+n's+p$,Cl35,0.61125,-1.84049079755
+numu,CC,$N+\mu^-+n+p's$,Cl35,2.4025,-13.0072840791
+numu,CC,$N+\mu^-+n's+p's$,Cl35,2.4275,8.34191555098
+numu,CC,$N+\mu^-+$ others,Cl35,0.12,-16.6666666667
+numu,CC,CC,Cl37,24.78125,-21.1904161412
+numu,CC,$N+\mu^-+p$,Cl37,12.95625,-38.4852870236
+numu,CC,$N+\mu^-+p's$,Cl37,3.695,-26.1163734777
+numu,CC,$N+\mu^-+n+p$,Cl37,2.56875,-6.1800486618
+numu,CC,$N+\mu^-+n's+p$,Cl37,0.61125,21.063394683
+numu,CC,$N+\mu^-+n+p's$,Cl37,2.4025,-4.26638917794
+numu,CC,$N+\mu^-+n's+p's$,Cl37,2.4275,30.9989701339
+numu,CC,$N+\mu^-+$ others,Cl37,0.12,66.6666666667
+numubar,NC,NC,Li6,81.7225,-8.04246076662
+numubar,NC,$N+\bar{\nu}_\mu+n$,Li6,24.65875,-7.25401733665
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Li6,3.16125,-26.9276393832
+numubar,NC,$N+\bar{\nu}_\mu+p$,Li6,28.02125,10.5232635946
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Li6,3.06,3.26797385621
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Li6,8.24375,26.520090978
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Li6,4.1125,-61.094224924
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Li6,3.505,-49.5007132668
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Li6,6.5775,-74.7624477385
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Li6,0.3825,-0.653594771242
+numubar,NC,NC,Li7,81.7225,-5.26476796476
+numubar,NC,$N+\bar{\nu}_\mu+n$,Li7,24.65875,10.7517615451
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Li7,3.16125,-17.1213918545
+numubar,NC,$N+\bar{\nu}_\mu+p$,Li7,28.02125,-4.50104831155
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Li7,3.06,-44.7712418301
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Li7,8.24375,-2.10765731615
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Li7,4.1125,5.53191489362
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Li7,3.505,-28.6733238231
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Li7,6.5775,-40.8589889776
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Li7,0.3825,-37.2549019608
+numubar,NC,NC,C12,81.7225,-2.65838661323
+numubar,NC,$N+\bar{\nu}_\mu+n$,C12,24.65875,-8.0245349014
+numubar,NC,$N+\bar{\nu}_\mu+n's$,C12,3.16125,-40.8461842626
+numubar,NC,$N+\bar{\nu}_\mu+p$,C12,28.02125,12.3076236785
+numubar,NC,$N+\bar{\nu}_\mu+p's$,C12,3.06,-13.7254901961
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,C12,8.24375,-16.7854435178
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,C12,4.1125,-20.9726443769
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,C12,3.505,4.99286733238
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,C12,6.5775,-2.24249334854
+numubar,NC,$N+\bar{\nu}_\mu+$ others,C12,0.3825,75.1633986928
+numubar,NC,NC,C13,81.7225,-0.761724127382
+numubar,NC,$N+\bar{\nu}_\mu+n$,C13,24.65875,7.22360216962
+numubar,NC,$N+\bar{\nu}_\mu+n's$,C13,3.16125,-21.5500197707
+numubar,NC,$N+\bar{\nu}_\mu+p$,C13,28.02125,7.73966186376
+numubar,NC,$N+\bar{\nu}_\mu+p's$,C13,3.06,-33.3333333333
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,C13,8.24375,-17.513267627
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,C13,4.1125,-6.62613981763
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,C13,3.505,-26.6761768902
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,C13,6.5775,-4.06689471684
+numubar,NC,$N+\bar{\nu}_\mu+$ others,C13,0.3825,12.4183006536
+numubar,NC,NC,O16,81.7225,1.17164795497
+numubar,NC,$N+\bar{\nu}_\mu+n$,O16,24.65875,3.16824656562
+numubar,NC,$N+\bar{\nu}_\mu+n's$,O16,3.16125,-17.4377224199
+numubar,NC,$N+\bar{\nu}_\mu+p$,O16,28.02125,0.566534326627
+numubar,NC,$N+\bar{\nu}_\mu+p's$,O16,3.06,2.28758169935
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,O16,8.24375,2.62319939348
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,O16,4.1125,-11.4893617021
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,O16,3.505,13.8373751783
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,O16,6.5775,5.20714557203
+numubar,NC,$N+\bar{\nu}_\mu+$ others,O16,0.3825,-18.954248366
+numubar,NC,NC,O18,81.7225,3.39869680932
+numubar,NC,$N+\bar{\nu}_\mu+n$,O18,24.65875,14.1177066964
+numubar,NC,$N+\bar{\nu}_\mu+n's$,O18,3.16125,32.2261763543
+numubar,NC,$N+\bar{\nu}_\mu+p$,O18,28.02125,-10.5678725967
+numubar,NC,$N+\bar{\nu}_\mu+p's$,O18,3.06,-13.3986928105
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,O18,8.24375,-2.71417740713
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,O18,4.1125,26.9300911854
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,O18,3.505,-5.27817403709
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,O18,6.5775,16.9137210186
+numubar,NC,$N+\bar{\nu}_\mu+$ others,O18,0.3825,-42.4836601307
+numubar,NC,NC,Cl35,81.7225,5.65021872801
+numubar,NC,$N+\bar{\nu}_\mu+n$,Cl35,24.65875,-10.9443909363
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Cl35,3.16125,24.9505733491
+numubar,NC,$N+\bar{\nu}_\mu+p$,Cl35,28.02125,-7.2489628407
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Cl35,3.06,50.6535947712
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Cl35,8.24375,4.07884761183
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Cl35,4.1125,34.2249240122
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Cl35,3.505,51.212553495
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Cl35,6.5775,52.6415811479
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Cl35,0.3825,1.96078431373
+numubar,NC,NC,Cl37,81.7225,6.50677597969
+numubar,NC,$N+\bar{\nu}_\mu+n$,Cl37,24.65875,-9.0383738024
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Cl37,3.16125,66.7062079873
+numubar,NC,$N+\bar{\nu}_\mu+p$,Cl37,28.02125,-8.8191997145
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Cl37,3.06,49.0196078431
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Cl37,8.24375,5.89840788476
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Cl37,4.1125,33.4954407295
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Cl37,3.505,40.0855920114
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Cl37,6.5775,47.1683770429
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Cl37,0.3825,9.80392156863
+numubar,CC,CC,Li6,18.2775,35.9595130625
+numubar,CC,$N+\mu^++n$,Li6,10.60375,54.5679594483
+numubar,CC,$N+\mu^++n's$,Li6,2.93,42.3208191126
+numubar,CC,$N+\mu^++n+p$,Li6,1.37875,61.7407071623
+numubar,CC,$N+\mu^++n's+p$,Li6,1.5975,-19.8748043818
+numubar,CC,$N+\mu^++n+p's$,Li6,0.26125,-65.5502392344
+numubar,CC,$N+\mu^++n's+p's$,Li6,1.19125,-64.7429171039
+numubar,CC,$N+\mu^++$ others,Li6,0.315,-14.2857142857
+numubar,CC,CC,Li7,18.2775,23.5398714266
+numubar,CC,$N+\mu^++n$,Li7,10.60375,42.9682895202
+numubar,CC,$N+\mu^++n's$,Li7,2.93,16.7235494881
+numubar,CC,$N+\mu^++n+p$,Li7,1.37875,-22.3934723481
+numubar,CC,$N+\mu^++n's+p$,Li7,1.5975,28.951486698
+numubar,CC,$N+\mu^++n+p's$,Li7,0.26125,-54.0669856459
+numubar,CC,$N+\mu^++n's+p's$,Li7,1.19125,-63.0640083945
+numubar,CC,$N+\mu^++$ others,Li7,0.315,-1.5873015873
+numubar,CC,CC,C12,18.2775,11.8861988784
+numubar,CC,$N+\mu^++n$,C12,10.60375,9.11234233172
+numubar,CC,$N+\mu^++n's$,C12,2.93,-3.41296928328
+numubar,CC,$N+\mu^++n+p$,C12,1.37875,1.54125113327
+numubar,CC,$N+\mu^++n's+p$,C12,1.5975,35.2112676056
+numubar,CC,$N+\mu^++n+p's$,C12,0.26125,14.8325358852
+numubar,CC,$N+\mu^++n's+p's$,C12,1.19125,47.7439664218
+numubar,CC,$N+\mu^++$ others,C12,0.315,36.5079365079
+numubar,CC,CC,C13,18.2775,3.40582683627
+numubar,CC,$N+\mu^++n$,C13,10.60375,4.01980431451
+numubar,CC,$N+\mu^++n's$,C13,2.93,10.2389078498
+numubar,CC,$N+\mu^++n+p$,C13,1.37875,-4.98640072529
+numubar,CC,$N+\mu^++n's+p$,C13,1.5975,-2.97339593114
+numubar,CC,$N+\mu^++n+p's$,C13,0.26125,-11.961722488
+numubar,CC,$N+\mu^++n's+p's$,C13,1.19125,-1.78384050367
+numubar,CC,$N+\mu^++$ others,C13,0.315,20.6349206349
+numubar,CC,CC,O16,18.2775,-5.23868143893
+numubar,CC,$N+\mu^++n$,O16,10.60375,-10.9748909584
+numubar,CC,$N+\mu^++n's$,O16,2.93,0.682593856655
+numubar,CC,$N+\mu^++n+p$,O16,1.37875,-2.08522212149
+numubar,CC,$N+\mu^++n's+p$,O16,1.5975,-6.10328638498
+numubar,CC,$N+\mu^++n+p's$,O16,0.26125,11.004784689
+numubar,CC,$N+\mu^++n's+p's$,O16,1.19125,20.0419727177
+numubar,CC,$N+\mu^++$ others,O16,0.315,14.2857142857
+numubar,CC,CC,O18,18.2775,-15.1962795787
+numubar,CC,$N+\mu^++n$,O18,10.60375,-19.7453730991
+numubar,CC,$N+\mu^++n's$,O18,2.93,-8.19112627986
+numubar,CC,$N+\mu^++n+p$,O18,1.37875,-7.16228467815
+numubar,CC,$N+\mu^++n's+p$,O18,1.5975,-2.97339593114
+numubar,CC,$N+\mu^++n+p's$,O18,0.26125,11.004784689
+numubar,CC,$N+\mu^++n's+p's$,O18,1.19125,-18.5729275971
+numubar,CC,$N+\mu^++$ others,O18,0.315,-33.3333333333
+numubar,CC,CC,Cl35,18.2775,-25.2633018739
+numubar,CC,$N+\mu^++n$,Cl35,10.60375,-37.4749498998
+numubar,CC,$N+\mu^++n's$,Cl35,2.93,-28.3276450512
+numubar,CC,$N+\mu^++n+p$,Cl35,1.37875,-8.61287398005
+numubar,CC,$N+\mu^++n's+p$,Cl35,1.5975,-19.8748043818
+numubar,CC,$N+\mu^++n+p's$,Cl35,0.26125,60.7655502392
+numubar,CC,$N+\mu^++n's+p's$,Cl35,1.19125,41.0283315845
+numubar,CC,$N+\mu^++$ others,Cl35,0.315,-7.93650793651
+numubar,CC,CC,Cl37,18.2775,-29.0931473123
+numubar,CC,$N+\mu^++n$,Cl37,10.60375,-42.4731816574
+numubar,CC,$N+\mu^++n's$,Cl37,2.93,-30.0341296928
+numubar,CC,$N+\mu^++n+p$,Cl37,1.37875,-18.0417044424
+numubar,CC,$N+\mu^++n's+p$,Cl37,1.5975,-12.3630672926
+numubar,CC,$N+\mu^++n+p's$,Cl37,0.26125,33.971291866
+numubar,CC,$N+\mu^++n's+p's$,Cl37,1.19125,39.3494228751
+numubar,CC,$N+\mu^++$ others,Cl37,0.315,-14.2857142857

@@ -1,0 +1,577 @@
+﻿flavor,interaction,final_state,isotope,simulated_count,total_count,ratio_percent
+nue,NC,NC,Li6,9638,10000,96.38
+nue,NC,$N+\nu_e+n$,Li6,3372,10000,33.72
+nue,NC,$N+\nu_e+n's$,Li6,325,10000,3.25
+nue,NC,$N+\nu_e+p$,Li6,3606,10000,36.06
+nue,NC,$N+\nu_e+p's$,Li6,346,10000,3.46
+nue,NC,$N+\nu_e+n+p$,Li6,1275,10000,12.75
+nue,NC,$N+\nu_e+n's+p$,Li6,227,10000,2.27
+nue,NC,$N+\nu_e+n+p's$,Li6,215,10000,2.15
+nue,NC,$N+\nu_e+n's+p's$,Li6,230,10000,2.3
+nue,NC,$N+\nu_e+$ others,Li6,42,10000,0.42
+nue,NC,NC,Li7,9607,10000,96.07
+nue,NC,$N+\nu_e+n$,Li7,3826,10000,38.26
+nue,NC,$N+\nu_e+n's$,Li7,402,10000,4.02
+nue,NC,$N+\nu_e+p$,Li7,2877,10000,28.77
+nue,NC,$N+\nu_e+p's$,Li7,189,10000,1.89
+nue,NC,$N+\nu_e+n+p$,Li7,1032,10000,10.32
+nue,NC,$N+\nu_e+n's+p$,Li7,528,10000,5.28
+nue,NC,$N+\nu_e+n+p's$,Li7,311,10000,3.11
+nue,NC,$N+\nu_e+n's+p's$,Li7,401,10000,4.01
+nue,NC,$N+\nu_e+$ others,Li7,41,10000,0.41
+nue,NC,NC,C12,9632,10000,96.32
+nue,NC,$N+\nu_e+n$,C12,3188,10000,31.88
+nue,NC,$N+\nu_e+n's$,C12,329,10000,3.29
+nue,NC,$N+\nu_e+p$,C12,3346,10000,33.46
+nue,NC,$N+\nu_e+p's$,C12,312,10000,3.12
+nue,NC,$N+\nu_e+n+p$,C12,862,10000,8.62
+nue,NC,$N+\nu_e+n's+p$,C12,359,10000,3.59
+nue,NC,$N+\nu_e+n+p's$,C12,392,10000,3.92
+nue,NC,$N+\nu_e+n's+p's$,C12,770,10000,7.7
+nue,NC,$N+\nu_e+$ others,C12,74,10000,0.74
+nue,NC,NC,C13,9676,10000,96.76
+nue,NC,$N+\nu_e+n$,C13,3564,10000,35.64
+nue,NC,$N+\nu_e+n's$,C13,363,10000,3.63
+nue,NC,$N+\nu_e+p$,C13,3144,10000,31.44
+nue,NC,$N+\nu_e+p's$,C13,244,10000,2.44
+nue,NC,$N+\nu_e+n+p$,C13,804,10000,8.04
+nue,NC,$N+\nu_e+n's+p$,C13,444,10000,4.44
+nue,NC,$N+\nu_e+n+p's$,C13,344,10000,3.44
+nue,NC,$N+\nu_e+n's+p's$,C13,711,10000,7.11
+nue,NC,$N+\nu_e+$ others,C13,58,10000,0.58
+nue,NC,NC,O16,9699,10000,96.99
+nue,NC,$N+\nu_e+n$,O16,3379,10000,33.79
+nue,NC,$N+\nu_e+n's$,O16,406,10000,4.06
+nue,NC,$N+\nu_e+p$,O16,2870,10000,28.7
+nue,NC,$N+\nu_e+p's$,O16,370,10000,3.7
+nue,NC,$N+\nu_e+n+p$,O16,976,10000,9.76
+nue,NC,$N+\nu_e+n's+p$,O16,432,10000,4.32
+nue,NC,$N+\nu_e+n+p's$,O16,410,10000,4.1
+nue,NC,$N+\nu_e+n's+p's$,O16,836,10000,8.36
+nue,NC,$N+\nu_e+$ others,O16,20,10000,0.2
+nue,NC,NC,O18,9635,10000,96.35
+nue,NC,$N+\nu_e+n$,O18,3674,10000,36.74
+nue,NC,$N+\nu_e+n's$,O18,511,10000,5.11
+nue,NC,$N+\nu_e+p$,O18,2443,10000,24.43
+nue,NC,$N+\nu_e+p's$,O18,263,10000,2.63
+nue,NC,$N+\nu_e+n+p$,O18,914,10000,9.14
+nue,NC,$N+\nu_e+n's+p$,O18,617,10000,6.17
+nue,NC,$N+\nu_e+n+p's$,O18,377,10000,3.77
+nue,NC,$N+\nu_e+n's+p's$,O18,817,10000,8.17
+nue,NC,$N+\nu_e+$ others,O18,19,10000,0.19
+nue,NC,NC,Cl35,9764,10000,97.64
+nue,NC,$N+\nu_e+n$,Cl35,2527,10000,25.27
+nue,NC,$N+\nu_e+n's$,Cl35,575,10000,5.75
+nue,NC,$N+\nu_e+p$,Cl35,2585,10000,25.85
+nue,NC,$N+\nu_e+p's$,Cl35,500,10000,5
+nue,NC,$N+\nu_e+n+p$,Cl35,1064,10000,10.64
+nue,NC,$N+\nu_e+n's+p$,Cl35,658,10000,6.58
+nue,NC,$N+\nu_e+n+p's$,Cl35,607,10000,6.07
+nue,NC,$N+\nu_e+n's+p's$,Cl35,1203,10000,12.03
+nue,NC,$N+\nu_e+$ others,Cl35,45,10000,0.45
+nue,NC,NC,Cl37,9752,10000,97.52
+nue,NC,$N+\nu_e+n$,Cl37,2711,10000,27.11
+nue,NC,$N+\nu_e+n's$,Cl37,626,10000,6.26
+nue,NC,$N+\nu_e+p$,Cl37,2439,10000,24.39
+nue,NC,$N+\nu_e+p's$,Cl37,448,10000,4.48
+nue,NC,$N+\nu_e+n+p$,Cl37,1047,10000,10.47
+nue,NC,$N+\nu_e+n's+p$,Cl37,696,10000,6.96
+nue,NC,$N+\nu_e+n+p's$,Cl37,563,10000,5.63
+nue,NC,$N+\nu_e+n's+p's$,Cl37,1174,10000,11.74
+nue,NC,$N+\nu_e+$ others,Cl37,48,10000,0.48
+nue,CC,CC,Li6,362,10000,3.62
+nue,CC,$N+e^-+p$,Li6,208,10000,2.08
+nue,CC,$N+e^-+p's$,Li6,63,10000,0.63
+nue,CC,$N+e^-+n+p$,Li6,43,10000,0.43
+nue,CC,$N+e^-+n's+p$,Li6,3,10000,0.03
+nue,CC,$N+e^-+n+p's$,Li6,24,10000,0.24
+nue,CC,$N+e^-+n's+p's$,Li6,6,10000,0.06
+nue,CC,$N+e^-+$ others,Li6,15,10000,0.15
+nue,CC,CC,Li7,393,10000,3.93
+nue,CC,$N+e^-+p$,Li7,218,10000,2.18
+nue,CC,$N+e^-+p's$,Li7,55,10000,0.55
+nue,CC,$N+e^-+n+p$,Li7,31,10000,0.31
+nue,CC,$N+e^-+n's+p$,Li7,7,10000,0.07
+nue,CC,$N+e^-+n+p's$,Li7,42,10000,0.42
+nue,CC,$N+e^-+n's+p's$,Li7,23,10000,0.23
+nue,CC,$N+e^-+$ others,Li7,17,10000,0.17
+nue,CC,CC,C12,368,10000,3.68
+nue,CC,$N+e^-+p$,C12,170,10000,1.7
+nue,CC,$N+e^-+p's$,C12,51,10000,0.51
+nue,CC,$N+e^-+n+p$,C12,31,10000,0.31
+nue,CC,$N+e^-+n's+p$,C12,6,10000,0.06
+nue,CC,$N+e^-+n+p's$,C12,32,10000,0.32
+nue,CC,$N+e^-+n's+p's$,C12,31,10000,0.31
+nue,CC,$N+e^-+$ others,C12,47,10000,0.47
+nue,CC,CC,C13,324,10000,3.24
+nue,CC,$N+e^-+p$,C13,148,10000,1.48
+nue,CC,$N+e^-+p's$,C13,48,10000,0.48
+nue,CC,$N+e^-+n+p$,C13,27,10000,0.27
+nue,CC,$N+e^-+n's+p$,C13,9,10000,0.09
+nue,CC,$N+e^-+n+p's$,C13,38,10000,0.38
+nue,CC,$N+e^-+n's+p's$,C13,26,10000,0.26
+nue,CC,$N+e^-+$ others,C13,28,10000,0.28
+nue,CC,CC,O16,301,10000,3.01
+nue,CC,$N+e^-+p$,O16,139,10000,1.39
+nue,CC,$N+e^-+p's$,O16,41,10000,0.41
+nue,CC,$N+e^-+n+p$,O16,34,10000,0.34
+nue,CC,$N+e^-+n's+p$,O16,8,10000,0.08
+nue,CC,$N+e^-+n+p's$,O16,23,10000,0.23
+nue,CC,$N+e^-+n's+p's$,O16,20,10000,0.2
+nue,CC,$N+e^-+$ others,O16,36,10000,0.36
+nue,CC,CC,O18,365,10000,3.65
+nue,CC,$N+e^-+p$,O18,180,10000,1.8
+nue,CC,$N+e^-+p's$,O18,36,10000,0.36
+nue,CC,$N+e^-+n+p$,O18,33,10000,0.33
+nue,CC,$N+e^-+n's+p$,O18,9,10000,0.09
+nue,CC,$N+e^-+n+p's$,O18,35,10000,0.35
+nue,CC,$N+e^-+n's+p's$,O18,35,10000,0.35
+nue,CC,$N+e^-+$ others,O18,37,10000,0.37
+nue,CC,CC,Cl35,236,10000,2.36
+nue,CC,$N+e^-+p$,Cl35,94,10000,0.94
+nue,CC,$N+e^-+p's$,Cl35,37,10000,0.37
+nue,CC,$N+e^-+n+p$,Cl35,14,10000,0.14
+nue,CC,$N+e^-+n's+p$,Cl35,3,10000,0.03
+nue,CC,$N+e^-+n+p's$,Cl35,29,10000,0.29
+nue,CC,$N+e^-+n's+p's$,Cl35,35,10000,0.35
+nue,CC,$N+e^-+$ others,Cl35,24,10000,0.24
+nue,CC,CC,Cl37,248,10000,2.48
+nue,CC,$N+e^-+p$,Cl37,99,10000,0.99
+nue,CC,$N+e^-+p's$,Cl37,24,10000,0.24
+nue,CC,$N+e^-+n+p$,Cl37,29,10000,0.29
+nue,CC,$N+e^-+n's+p$,Cl37,16,10000,0.16
+nue,CC,$N+e^-+n+p's$,Cl37,20,10000,0.2
+nue,CC,$N+e^-+n's+p's$,Cl37,34,10000,0.34
+nue,CC,$N+e^-+$ others,Cl37,26,10000,0.26
+nuebar,NC,NC,Li6,9481,10000,94.81
+nuebar,NC,$N+\bar{\nu}_e+n$,Li6,2852,10000,28.52
+nuebar,NC,$N+\bar{\nu}_e+n's$,Li6,296,10000,2.96
+nuebar,NC,$N+\bar{\nu}_e+p$,Li6,3816,10000,38.16
+nuebar,NC,$N+\bar{\nu}_e+p's$,Li6,387,10000,3.87
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Li6,1384,10000,13.84
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Li6,211,10000,2.11
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Li6,260,10000,2.6
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Li6,202,10000,2.02
+nuebar,NC,$N+\bar{\nu}_e+$ others,Li6,73,10000,0.73
+nuebar,NC,NC,Li7,9518,10000,95.18
+nuebar,NC,$N+\bar{\nu}_e+n$,Li7,3336,10000,33.36
+nuebar,NC,$N+\bar{\nu}_e+n's$,Li7,345,10000,3.45
+nuebar,NC,$N+\bar{\nu}_e+p$,Li7,3265,10000,32.65
+nuebar,NC,$N+\bar{\nu}_e+p's$,Li7,211,10000,2.11
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Li7,961,10000,9.61
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Li7,550,10000,5.5
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Li7,330,10000,3.3
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Li7,452,10000,4.52
+nuebar,NC,$N+\bar{\nu}_e+$ others,Li7,68,10000,0.68
+nuebar,NC,NC,C12,9501,10000,95.01
+nuebar,NC,$N+\bar{\nu}_e+n$,C12,2709,10000,27.09
+nuebar,NC,$N+\bar{\nu}_e+n's$,C12,266,10000,2.66
+nuebar,NC,$N+\bar{\nu}_e+p$,C12,3661,10000,36.61
+nuebar,NC,$N+\bar{\nu}_e+p's$,C12,326,10000,3.26
+nuebar,NC,$N+\bar{\nu}_e+n+p$,C12,811,10000,8.11
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,C12,390,10000,3.9
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,C12,373,10000,3.73
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,C12,817,10000,8.17
+nuebar,NC,$N+\bar{\nu}_e+$ others,C12,148,10000,1.48
+nuebar,NC,NC,C13,9592,10000,95.92
+nuebar,NC,$N+\bar{\nu}_e+n$,C13,3121,10000,31.21
+nuebar,NC,$N+\bar{\nu}_e+n's$,C13,287,10000,2.87
+nuebar,NC,$N+\bar{\nu}_e+p$,C13,3499,10000,34.99
+nuebar,NC,$N+\bar{\nu}_e+p's$,C13,238,10000,2.38
+nuebar,NC,$N+\bar{\nu}_e+n+p$,C13,758,10000,7.58
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,C13,451,10000,4.51
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,C13,337,10000,3.37
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,C13,799,10000,7.99
+nuebar,NC,$N+\bar{\nu}_e+$ others,C13,102,10000,1.02
+nuebar,NC,NC,O16,9661,10000,96.61
+nuebar,NC,$N+\bar{\nu}_e+n$,O16,3009,10000,30.09
+nuebar,NC,$N+\bar{\nu}_e+n's$,O16,350,10000,3.5
+nuebar,NC,$N+\bar{\nu}_e+p$,O16,3288,10000,32.88
+nuebar,NC,$N+\bar{\nu}_e+p's$,O16,357,10000,3.57
+nuebar,NC,$N+\bar{\nu}_e+n+p$,O16,881,10000,8.81
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,O16,445,10000,4.45
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,O16,456,10000,4.56
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,O16,797,10000,7.97
+nuebar,NC,$N+\bar{\nu}_e+$ others,O16,78,10000,0.78
+nuebar,NC,NC,O18,9662,10000,96.62
+nuebar,NC,$N+\bar{\nu}_e+n$,O18,3260,10000,32.6
+nuebar,NC,$N+\bar{\nu}_e+n's$,O18,476,10000,4.76
+nuebar,NC,$N+\bar{\nu}_e+p$,O18,2906,10000,29.06
+nuebar,NC,$N+\bar{\nu}_e+p's$,O18,305,10000,3.05
+nuebar,NC,$N+\bar{\nu}_e+n+p$,O18,834,10000,8.34
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,O18,547,10000,5.47
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,O18,427,10000,4.27
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,O18,851,10000,8.51
+nuebar,NC,$N+\bar{\nu}_e+$ others,O18,56,10000,0.56
+nuebar,NC,NC,Cl35,9719,10000,97.19
+nuebar,NC,$N+\bar{\nu}_e+n$,Cl35,2355,10000,23.55
+nuebar,NC,$N+\bar{\nu}_e+n's$,Cl35,501,10000,5.01
+nuebar,NC,$N+\bar{\nu}_e+p$,Cl35,2925,10000,29.25
+nuebar,NC,$N+\bar{\nu}_e+p's$,Cl35,556,10000,5.56
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Cl35,968,10000,9.68
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Cl35,574,10000,5.74
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Cl35,607,10000,6.07
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Cl35,1150,10000,11.5
+nuebar,NC,$N+\bar{\nu}_e+$ others,Cl35,83,10000,0.83
+nuebar,NC,NC,Cl37,9730,10000,97.3
+nuebar,NC,$N+\bar{\nu}_e+n$,Cl37,2473,10000,24.73
+nuebar,NC,$N+\bar{\nu}_e+n's$,Cl37,497,10000,4.97
+nuebar,NC,$N+\bar{\nu}_e+p$,Cl37,2786,10000,27.86
+nuebar,NC,$N+\bar{\nu}_e+p's$,Cl37,506,10000,5.06
+nuebar,NC,$N+\bar{\nu}_e+n+p$,Cl37,1013,10000,10.13
+nuebar,NC,$N+\bar{\nu}_e+n's+p$,Cl37,631,10000,6.31
+nuebar,NC,$N+\bar{\nu}_e+n+p's$,Cl37,593,10000,5.93
+nuebar,NC,$N+\bar{\nu}_e+n's+p's$,Cl37,1164,10000,11.64
+nuebar,NC,$N+\bar{\nu}_e+$ others,Cl37,67,10000,0.67
+nuebar,CC,CC,Li6,519,10000,5.19
+nuebar,CC,$N+e^++n$,Li6,371,10000,3.71
+nuebar,CC,$N+e^++n's$,Li6,67,10000,0.67
+nuebar,CC,$N+e^++n+p$,Li6,43,10000,0.43
+nuebar,CC,$N+e^++n's+p$,Li6,22,10000,0.22
+nuebar,CC,$N+e^++n+p's$,Li6,2,10000,0.02
+nuebar,CC,$N+e^++n's+p's$,Li6,6,10000,0.06
+nuebar,CC,$N+e^++$ others,Li6,8,10000,0.08
+nuebar,CC,CC,Li7,482,10000,4.82
+nuebar,CC,$N+e^++n$,Li7,331,10000,3.31
+nuebar,CC,$N+e^++n's$,Li7,65,10000,0.65
+nuebar,CC,$N+e^++n+p$,Li7,23,10000,0.23
+nuebar,CC,$N+e^++n's+p$,Li7,42,10000,0.42
+nuebar,CC,$N+e^++n+p's$,Li7,1,10000,0.01
+nuebar,CC,$N+e^++n's+p's$,Li7,10,10000,0.1
+nuebar,CC,$N+e^++$ others,Li7,10,10000,0.1
+nuebar,CC,CC,C12,499,10000,4.99
+nuebar,CC,$N+e^++n$,C12,293,10000,2.93
+nuebar,CC,$N+e^++n's$,C12,58,10000,0.58
+nuebar,CC,$N+e^++n+p$,C12,38,10000,0.38
+nuebar,CC,$N+e^++n's+p$,C12,36,10000,0.36
+nuebar,CC,$N+e^++n+p's$,C12,7,10000,0.07
+nuebar,CC,$N+e^++n's+p's$,C12,41,10000,0.41
+nuebar,CC,$N+e^++$ others,C12,26,10000,0.26
+nuebar,CC,CC,C13,408,10000,4.08
+nuebar,CC,$N+e^++n$,C13,241,10000,2.41
+nuebar,CC,$N+e^++n's$,C13,62,10000,0.62
+nuebar,CC,$N+e^++n+p$,C13,25,10000,0.25
+nuebar,CC,$N+e^++n's+p$,C13,34,10000,0.34
+nuebar,CC,$N+e^++n+p's$,C13,5,10000,0.05
+nuebar,CC,$N+e^++n's+p's$,C13,15,10000,0.15
+nuebar,CC,$N+e^++$ others,C13,26,10000,0.26
+nuebar,CC,CC,O16,339,10000,3.39
+nuebar,CC,$N+e^++n$,O16,182,10000,1.82
+nuebar,CC,$N+e^++n's$,O16,50,10000,0.5
+nuebar,CC,$N+e^++n+p$,O16,20,10000,0.2
+nuebar,CC,$N+e^++n's+p$,O16,36,10000,0.36
+nuebar,CC,$N+e^++n+p's$,O16,3,10000,0.03
+nuebar,CC,$N+e^++n's+p's$,O16,26,10000,0.26
+nuebar,CC,$N+e^++$ others,O16,22,10000,0.22
+nuebar,CC,CC,O18,338,10000,3.38
+nuebar,CC,$N+e^++n$,O18,206,10000,2.06
+nuebar,CC,$N+e^++n's$,O18,42,10000,0.42
+nuebar,CC,$N+e^++n+p$,O18,20,10000,0.2
+nuebar,CC,$N+e^++n's+p$,O18,24,10000,0.24
+nuebar,CC,$N+e^++n+p's$,O18,3,10000,0.03
+nuebar,CC,$N+e^++n's+p's$,O18,21,10000,0.21
+nuebar,CC,$N+e^++$ others,O18,22,10000,0.22
+nuebar,CC,CC,Cl35,281,10000,2.81
+nuebar,CC,$N+e^++n$,Cl35,136,10000,1.36
+nuebar,CC,$N+e^++n's$,Cl35,44,10000,0.44
+nuebar,CC,$N+e^++n+p$,Cl35,12,10000,0.12
+nuebar,CC,$N+e^++n's+p$,Cl35,36,10000,0.36
+nuebar,CC,$N+e^++n+p's$,Cl35,5,10000,0.05
+nuebar,CC,$N+e^++n's+p's$,Cl35,28,10000,0.28
+nuebar,CC,$N+e^++$ others,Cl35,20,10000,0.2
+nuebar,CC,CC,Cl37,270,10000,2.7
+nuebar,CC,$N+e^++n$,Cl37,129,10000,1.29
+nuebar,CC,$N+e^++n's$,Cl37,41,10000,0.41
+nuebar,CC,$N+e^++n+p$,Cl37,25,10000,0.25
+nuebar,CC,$N+e^++n's+p$,Cl37,25,10000,0.25
+nuebar,CC,$N+e^++n+p's$,Cl37,5,10000,0.05
+nuebar,CC,$N+e^++n's+p's$,Cl37,28,10000,0.28
+nuebar,CC,$N+e^++$ others,Cl37,17,10000,0.17
+numu,NC,NC,Li6,7080,10000,70.8
+numu,NC,$N+\nu_\mu+n$,Li6,2466,10000,24.66
+numu,NC,$N+\nu_\mu+n's$,Li6,221,10000,2.21
+numu,NC,$N+\nu_\mu+p$,Li6,2646,10000,26.46
+numu,NC,$N+\nu_\mu+p's$,Li6,263,10000,2.63
+numu,NC,$N+\nu_\mu+n+p$,Li6,973,10000,9.73
+numu,NC,$N+\nu_\mu+n's+p$,Li6,166,10000,1.66
+numu,NC,$N+\nu_\mu+n+p's$,Li6,167,10000,1.67
+numu,NC,$N+\nu_\mu+n's+p's$,Li6,152,10000,1.52
+numu,NC,$N+\nu_\mu+$ others,Li6,26,10000,0.26
+numu,NC,NC,Li7,6843,10000,68.43
+numu,NC,$N+\nu_\mu+n$,Li7,2698,10000,26.98
+numu,NC,$N+\nu_\mu+n's$,Li7,275,10000,2.75
+numu,NC,$N+\nu_\mu+p$,Li7,2106,10000,21.06
+numu,NC,$N+\nu_\mu+p's$,Li7,136,10000,1.36
+numu,NC,$N+\nu_\mu+n+p$,Li7,711,10000,7.11
+numu,NC,$N+\nu_\mu+n's+p$,Li7,364,10000,3.64
+numu,NC,$N+\nu_\mu+n+p's$,Li7,228,10000,2.28
+numu,NC,$N+\nu_\mu+n's+p's$,Li7,315,10000,3.15
+numu,NC,$N+\nu_\mu+$ others,Li7,10,10000,0.1
+numu,NC,NC,C12,7525,10000,75.25
+numu,NC,$N+\nu_\mu+n$,C12,2511,10000,25.11
+numu,NC,$N+\nu_\mu+n's$,C12,249,10000,2.49
+numu,NC,$N+\nu_\mu+p$,C12,2713,10000,27.13
+numu,NC,$N+\nu_\mu+p's$,C12,245,10000,2.45
+numu,NC,$N+\nu_\mu+n+p$,C12,612,10000,6.12
+numu,NC,$N+\nu_\mu+n's+p$,C12,278,10000,2.78
+numu,NC,$N+\nu_\mu+n+p's$,C12,303,10000,3.03
+numu,NC,$N+\nu_\mu+n's+p's$,C12,552,10000,5.52
+numu,NC,$N+\nu_\mu+$ others,C12,62,10000,0.62
+numu,NC,NC,C13,7447,10000,74.47
+numu,NC,$N+\nu_\mu+n$,C13,2727,10000,27.27
+numu,NC,$N+\nu_\mu+n's$,C13,258,10000,2.58
+numu,NC,$N+\nu_\mu+p$,C13,2489,10000,24.89
+numu,NC,$N+\nu_\mu+p's$,C13,178,10000,1.78
+numu,NC,$N+\nu_\mu+n+p$,C13,610,10000,6.1
+numu,NC,$N+\nu_\mu+n's+p$,C13,331,10000,3.31
+numu,NC,$N+\nu_\mu+n+p's$,C13,240,10000,2.4
+numu,NC,$N+\nu_\mu+n's+p's$,C13,585,10000,5.85
+numu,NC,$N+\nu_\mu+$ others,C13,29,10000,0.29
+numu,NC,NC,O16,7651,10000,76.51
+numu,NC,$N+\nu_\mu+n$,O16,2689,10000,26.89
+numu,NC,$N+\nu_\mu+n's$,O16,325,10000,3.25
+numu,NC,$N+\nu_\mu+p$,O16,2332,10000,23.32
+numu,NC,$N+\nu_\mu+p's$,O16,254,10000,2.54
+numu,NC,$N+\nu_\mu+n+p$,O16,729,10000,7.29
+numu,NC,$N+\nu_\mu+n's+p$,O16,327,10000,3.27
+numu,NC,$N+\nu_\mu+n+p's$,O16,321,10000,3.21
+numu,NC,$N+\nu_\mu+n's+p's$,O16,645,10000,6.45
+numu,NC,$N+\nu_\mu+$ others,O16,29,10000,0.29
+numu,NC,NC,O18,7484,10000,74.84
+numu,NC,$N+\nu_\mu+n$,O18,2797,10000,27.97
+numu,NC,$N+\nu_\mu+n's$,O18,405,10000,4.05
+numu,NC,$N+\nu_\mu+p$,O18,1921,10000,19.21
+numu,NC,$N+\nu_\mu+p's$,O18,207,10000,2.07
+numu,NC,$N+\nu_\mu+n+p$,O18,721,10000,7.21
+numu,NC,$N+\nu_\mu+n's+p$,O18,466,10000,4.66
+numu,NC,$N+\nu_\mu+n+p's$,O18,295,10000,2.95
+numu,NC,$N+\nu_\mu+n's+p's$,O18,645,10000,6.45
+numu,NC,$N+\nu_\mu+$ others,O18,27,10000,0.27
+numu,NC,NC,Cl35,8098,10000,80.98
+numu,NC,$N+\nu_\mu+n$,Cl35,2176,10000,21.76
+numu,NC,$N+\nu_\mu+n's$,Cl35,471,10000,4.71
+numu,NC,$N+\nu_\mu+p$,Cl35,2111,10000,21.11
+numu,NC,$N+\nu_\mu+p's$,Cl35,436,10000,4.36
+numu,NC,$N+\nu_\mu+n+p$,Cl35,865,10000,8.65
+numu,NC,$N+\nu_\mu+n's+p$,Cl35,516,10000,5.16
+numu,NC,$N+\nu_\mu+n+p's$,Cl35,520,10000,5.2
+numu,NC,$N+\nu_\mu+n's+p's$,Cl35,982,10000,9.82
+numu,NC,$N+\nu_\mu+$ others,Cl35,21,10000,0.21
+numu,NC,NC,Cl37,8047,10000,80.47
+numu,NC,$N+\nu_\mu+n$,Cl37,2258,10000,22.58
+numu,NC,$N+\nu_\mu+n's$,Cl37,531,10000,5.31
+numu,NC,$N+\nu_\mu+p$,Cl37,2007,10000,20.07
+numu,NC,$N+\nu_\mu+p's$,Cl37,346,10000,3.46
+numu,NC,$N+\nu_\mu+n+p$,Cl37,889,10000,8.89
+numu,NC,$N+\nu_\mu+n's+p$,Cl37,575,10000,5.75
+numu,NC,$N+\nu_\mu+n+p's$,Cl37,476,10000,4.76
+numu,NC,$N+\nu_\mu+n's+p's$,Cl37,931,10000,9.31
+numu,NC,$N+\nu_\mu+$ others,Cl37,34,10000,0.34
+numu,CC,CC,Li6,2920,10000,29.2
+numu,CC,$N+\mu^-+p$,Li6,1811,10000,18.11
+numu,CC,$N+\mu^-+p's$,Li6,530,10000,5.3
+numu,CC,$N+\mu^-+n+p$,Li6,278,10000,2.78
+numu,CC,$N+\mu^-+n's+p$,Li6,25,10000,0.25
+numu,CC,$N+\mu^-+n+p's$,Li6,172,10000,1.72
+numu,CC,$N+\mu^-+n's+p's$,Li6,95,10000,0.95
+numu,CC,$N+\mu^-+$ others,Li6,9,10000,0.09
+numu,CC,CC,Li7,3157,10000,31.57
+numu,CC,$N+\mu^-+p$,Li7,1867,10000,18.67
+numu,CC,$N+\mu^-+p's$,Li7,421,10000,4.21
+numu,CC,$N+\mu^-+n+p$,Li7,312,10000,3.12
+numu,CC,$N+\mu^-+n's+p$,Li7,67,10000,0.67
+numu,CC,$N+\mu^-+n+p's$,Li7,299,10000,2.99
+numu,CC,$N+\mu^-+n's+p's$,Li7,181,10000,1.81
+numu,CC,$N+\mu^-+$ others,Li7,10,10000,0.1
+numu,CC,CC,C12,2475,10000,24.75
+numu,CC,$N+\mu^-+p$,C12,1249,10000,12.49
+numu,CC,$N+\mu^-+p's$,C12,401,10000,4.01
+numu,CC,$N+\mu^-+n+p$,C12,254,10000,2.54
+numu,CC,$N+\mu^-+n's+p$,C12,45,10000,0.45
+numu,CC,$N+\mu^-+n+p's$,C12,247,10000,2.47
+numu,CC,$N+\mu^-+n's+p's$,C12,264,10000,2.64
+numu,CC,$N+\mu^-+$ others,C12,15,10000,0.15
+numu,CC,CC,C13,2553,10000,25.53
+numu,CC,$N+\mu^-+p$,C13,1354,10000,13.54
+numu,CC,$N+\mu^-+p's$,C13,346,10000,3.46
+numu,CC,$N+\mu^-+n+p$,C13,254,10000,2.54
+numu,CC,$N+\mu^-+n's+p$,C13,68,10000,0.68
+numu,CC,$N+\mu^-+n+p's$,C13,268,10000,2.68
+numu,CC,$N+\mu^-+n's+p's$,C13,253,10000,2.53
+numu,CC,$N+\mu^-+$ others,C13,10,10000,0.1
+numu,CC,CC,O16,2349,10000,23.49
+numu,CC,$N+\mu^-+p$,O16,1227,10000,12.27
+numu,CC,$N+\mu^-+p's$,O16,376,10000,3.76
+numu,CC,$N+\mu^-+n+p$,O16,219,10000,2.19
+numu,CC,$N+\mu^-+n's+p$,O16,47,10000,0.47
+numu,CC,$N+\mu^-+n+p's$,O16,230,10000,2.3
+numu,CC,$N+\mu^-+n's+p's$,O16,242,10000,2.42
+numu,CC,$N+\mu^-+$ others,O16,8,10000,0.08
+numu,CC,CC,O18,2516,10000,25.16
+numu,CC,$N+\mu^-+p$,O18,1185,10000,11.85
+numu,CC,$N+\mu^-+p's$,O18,329,10000,3.29
+numu,CC,$N+\mu^-+n+p$,O18,292,10000,2.92
+numu,CC,$N+\mu^-+n's+p$,O18,103,10000,1.03
+numu,CC,$N+\mu^-+n+p's$,O18,267,10000,2.67
+numu,CC,$N+\mu^-+n's+p's$,O18,326,10000,3.26
+numu,CC,$N+\mu^-+$ others,O18,14,10000,0.14
+numu,CC,CC,Cl35,1902,10000,19.02
+numu,CC,$N+\mu^-+p$,Cl35,875,10000,8.75
+numu,CC,$N+\mu^-+p's$,Cl35,280,10000,2.8
+numu,CC,$N+\mu^-+n+p$,Cl35,205,10000,2.05
+numu,CC,$N+\mu^-+n's+p$,Cl35,60,10000,0.6
+numu,CC,$N+\mu^-+n+p's$,Cl35,209,10000,2.09
+numu,CC,$N+\mu^-+n's+p's$,Cl35,263,10000,2.63
+numu,CC,$N+\mu^-+$ others,Cl35,10,10000,0.1
+numu,CC,CC,Cl37,1953,10000,19.53
+numu,CC,$N+\mu^-+p$,Cl37,797,10000,7.97
+numu,CC,$N+\mu^-+p's$,Cl37,273,10000,2.73
+numu,CC,$N+\mu^-+n+p$,Cl37,241,10000,2.41
+numu,CC,$N+\mu^-+n's+p$,Cl37,74,10000,0.74
+numu,CC,$N+\mu^-+n+p's$,Cl37,230,10000,2.3
+numu,CC,$N+\mu^-+n's+p's$,Cl37,318,10000,3.18
+numu,CC,$N+\mu^-+$ others,Cl37,20,10000,0.2
+numubar,NC,NC,Li6,7515,10000,75.15
+numubar,NC,$N+\bar{\nu}_\mu+n$,Li6,2287,10000,22.87
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Li6,231,10000,2.31
+numubar,NC,$N+\bar{\nu}_\mu+p$,Li6,3097,10000,30.97
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Li6,316,10000,3.16
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Li6,1043,10000,10.43
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Li6,160,10000,1.6
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Li6,177,10000,1.77
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Li6,166,10000,1.66
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Li6,38,10000,0.38
+numubar,NC,NC,Li7,7742,10000,77.42
+numubar,NC,$N+\bar{\nu}_\mu+n$,Li7,2731,10000,27.31
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Li7,262,10000,2.62
+numubar,NC,$N+\bar{\nu}_\mu+p$,Li7,2676,10000,26.76
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Li7,169,10000,1.69
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Li7,807,10000,8.07
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Li7,434,10000,4.34
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Li7,250,10000,2.5
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Li7,389,10000,3.89
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Li7,24,10000,0.24
+numubar,NC,NC,C12,7955,10000,79.55
+numubar,NC,$N+\bar{\nu}_\mu+n$,C12,2268,10000,22.68
+numubar,NC,$N+\bar{\nu}_\mu+n's$,C12,187,10000,1.87
+numubar,NC,$N+\bar{\nu}_\mu+p$,C12,3147,10000,31.47
+numubar,NC,$N+\bar{\nu}_\mu+p's$,C12,264,10000,2.64
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,C12,686,10000,6.86
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,C12,325,10000,3.25
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,C12,368,10000,3.68
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,C12,643,10000,6.43
+numubar,NC,$N+\bar{\nu}_\mu+$ others,C12,67,10000,0.67
+numubar,NC,NC,C13,8110,10000,81.1
+numubar,NC,$N+\bar{\nu}_\mu+n$,C13,2644,10000,26.44
+numubar,NC,$N+\bar{\nu}_\mu+n's$,C13,248,10000,2.48
+numubar,NC,$N+\bar{\nu}_\mu+p$,C13,3019,10000,30.19
+numubar,NC,$N+\bar{\nu}_\mu+p's$,C13,204,10000,2.04
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,C13,680,10000,6.8
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,C13,384,10000,3.84
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,C13,257,10000,2.57
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,C13,631,10000,6.31
+numubar,NC,$N+\bar{\nu}_\mu+$ others,C13,43,10000,0.43
+numubar,NC,NC,O16,8268,10000,82.68
+numubar,NC,$N+\bar{\nu}_\mu+n$,O16,2544,10000,25.44
+numubar,NC,$N+\bar{\nu}_\mu+n's$,O16,261,10000,2.61
+numubar,NC,$N+\bar{\nu}_\mu+p$,O16,2818,10000,28.18
+numubar,NC,$N+\bar{\nu}_\mu+p's$,O16,313,10000,3.13
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,O16,846,10000,8.46
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,O16,364,10000,3.64
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,O16,399,10000,3.99
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,O16,692,10000,6.92
+numubar,NC,$N+\bar{\nu}_\mu+$ others,O16,31,10000,0.31
+numubar,NC,NC,O18,8450,10000,84.5
+numubar,NC,$N+\bar{\nu}_\mu+n$,O18,2814,10000,28.14
+numubar,NC,$N+\bar{\nu}_\mu+n's$,O18,418,10000,4.18
+numubar,NC,$N+\bar{\nu}_\mu+p$,O18,2506,10000,25.06
+numubar,NC,$N+\bar{\nu}_\mu+p's$,O18,265,10000,2.65
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,O18,802,10000,8.02
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,O18,522,10000,5.22
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,O18,332,10000,3.32
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,O18,769,10000,7.69
+numubar,NC,$N+\bar{\nu}_\mu+$ others,O18,22,10000,0.22
+numubar,NC,NC,Cl35,8634,10000,86.34
+numubar,NC,$N+\bar{\nu}_\mu+n$,Cl35,2196,10000,21.96
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Cl35,395,10000,3.95
+numubar,NC,$N+\bar{\nu}_\mu+p$,Cl35,2599,10000,25.99
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Cl35,461,10000,4.61
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Cl35,858,10000,8.58
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Cl35,552,10000,5.52
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Cl35,530,10000,5.3
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Cl35,1004,10000,10.04
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Cl35,39,10000,0.39
+numubar,NC,NC,Cl37,8704,10000,87.04
+numubar,NC,$N+\bar{\nu}_\mu+n$,Cl37,2243,10000,22.43
+numubar,NC,$N+\bar{\nu}_\mu+n's$,Cl37,527,10000,5.27
+numubar,NC,$N+\bar{\nu}_\mu+p$,Cl37,2555,10000,25.55
+numubar,NC,$N+\bar{\nu}_\mu+p's$,Cl37,456,10000,4.56
+numubar,NC,$N+\bar{\nu}_\mu+n+p$,Cl37,873,10000,8.73
+numubar,NC,$N+\bar{\nu}_\mu+n's+p$,Cl37,549,10000,5.49
+numubar,NC,$N+\bar{\nu}_\mu+n+p's$,Cl37,491,10000,4.91
+numubar,NC,$N+\bar{\nu}_\mu+n's+p's$,Cl37,968,10000,9.68
+numubar,NC,$N+\bar{\nu}_\mu+$ others,Cl37,42,10000,0.42
+numubar,CC,CC,Li6,2485,10000,24.85
+numubar,CC,$N+\mu^++n$,Li6,1639,10000,16.39
+numubar,CC,$N+\mu^++n's$,Li6,417,10000,4.17
+numubar,CC,$N+\mu^++n+p$,Li6,223,10000,2.23
+numubar,CC,$N+\mu^++n's+p$,Li6,128,10000,1.28
+numubar,CC,$N+\mu^++n+p's$,Li6,9,10000,0.09
+numubar,CC,$N+\mu^++n's+p's$,Li6,42,10000,0.42
+numubar,CC,$N+\mu^++$ others,Li6,27,10000,0.27
+numubar,CC,CC,Li7,2258,10000,22.58
+numubar,CC,$N+\mu^++n$,Li7,1516,10000,15.16
+numubar,CC,$N+\mu^++n's$,Li7,342,10000,3.42
+numubar,CC,$N+\mu^++n+p$,Li7,107,10000,1.07
+numubar,CC,$N+\mu^++n's+p$,Li7,206,10000,2.06
+numubar,CC,$N+\mu^++n+p's$,Li7,12,10000,0.12
+numubar,CC,$N+\mu^++n's+p's$,Li7,44,10000,0.44
+numubar,CC,$N+\mu^++$ others,Li7,31,10000,0.31
+numubar,CC,CC,C12,2045,10000,20.45
+numubar,CC,$N+\mu^++n$,C12,1157,10000,11.57
+numubar,CC,$N+\mu^++n's$,C12,283,10000,2.83
+numubar,CC,$N+\mu^++n+p$,C12,140,10000,1.4
+numubar,CC,$N+\mu^++n's+p$,C12,216,10000,2.16
+numubar,CC,$N+\mu^++n+p's$,C12,30,10000,0.3
+numubar,CC,$N+\mu^++n's+p's$,C12,176,10000,1.76
+numubar,CC,$N+\mu^++$ others,C12,43,10000,0.43
+numubar,CC,CC,C13,1890,10000,18.9
+numubar,CC,$N+\mu^++n$,C13,1103,10000,11.03
+numubar,CC,$N+\mu^++n's$,C13,323,10000,3.23
+numubar,CC,$N+\mu^++n+p$,C13,131,10000,1.31
+numubar,CC,$N+\mu^++n's+p$,C13,155,10000,1.55
+numubar,CC,$N+\mu^++n+p's$,C13,23,10000,0.23
+numubar,CC,$N+\mu^++n's+p's$,C13,117,10000,1.17
+numubar,CC,$N+\mu^++$ others,C13,38,10000,0.38
+numubar,CC,CC,O16,1732,10000,17.32
+numubar,CC,$N+\mu^++n$,O16,944,10000,9.44
+numubar,CC,$N+\mu^++n's$,O16,295,10000,2.95
+numubar,CC,$N+\mu^++n+p$,O16,135,10000,1.35
+numubar,CC,$N+\mu^++n's+p$,O16,150,10000,1.5
+numubar,CC,$N+\mu^++n+p's$,O16,29,10000,0.29
+numubar,CC,$N+\mu^++n's+p's$,O16,143,10000,1.43
+numubar,CC,$N+\mu^++$ others,O16,36,10000,0.36
+numubar,CC,CC,O18,1550,10000,15.5
+numubar,CC,$N+\mu^++n$,O18,851,10000,8.51
+numubar,CC,$N+\mu^++n's$,O18,269,10000,2.69
+numubar,CC,$N+\mu^++n+p$,O18,128,10000,1.28
+numubar,CC,$N+\mu^++n's+p$,O18,155,10000,1.55
+numubar,CC,$N+\mu^++n+p's$,O18,29,10000,0.29
+numubar,CC,$N+\mu^++n's+p's$,O18,97,10000,0.97
+numubar,CC,$N+\mu^++$ others,O18,21,10000,0.21
+numubar,CC,CC,Cl35,1366,10000,13.66
+numubar,CC,$N+\mu^++n$,Cl35,663,10000,6.63
+numubar,CC,$N+\mu^++n's$,Cl35,210,10000,2.1
+numubar,CC,$N+\mu^++n+p$,Cl35,126,10000,1.26
+numubar,CC,$N+\mu^++n's+p$,Cl35,128,10000,1.28
+numubar,CC,$N+\mu^++n+p's$,Cl35,42,10000,0.42
+numubar,CC,$N+\mu^++n's+p's$,Cl35,168,10000,1.68
+numubar,CC,$N+\mu^++$ others,Cl35,29,10000,0.29
+numubar,CC,CC,Cl37,1296,10000,12.96
+numubar,CC,$N+\mu^++n$,Cl37,610,10000,6.1
+numubar,CC,$N+\mu^++n's$,Cl37,205,10000,2.05
+numubar,CC,$N+\mu^++n+p$,Cl37,113,10000,1.13
+numubar,CC,$N+\mu^++n's+p$,Cl37,140,10000,1.4
+numubar,CC,$N+\mu^++n+p's$,Cl37,35,10000,0.35
+numubar,CC,$N+\mu^++n's+p's$,Cl37,166,10000,1.66
+numubar,CC,$N+\mu^++$ others,Cl37,27,10000,0.27
