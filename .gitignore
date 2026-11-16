@@ -19,3 +19,6 @@
 
 # Compiled documents
 *.pdf
+
+# .DS_Store in MacBook
+**/.DS_Store
