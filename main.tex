@@ -504,20 +504,39 @@ The integrated event rates are shown in table \ref{tab:atmos-rate}
 
 \subsubsection{GENIE 模拟大气中微子-核素反应}
 
-本研究采用 GENIE v3.04.0 进行中微子-核素反应的模拟，GENIE 可以计算各味道中微子与各核素反应的各通道截面，并可以采样通量和截面模拟中微子-核素反应。本研究计算截面采用的 tune 为 G18\_02b\_00\_000，tune 定义了各过程采用的模型，对于 G18，这意味着。名称中的 b 表示 FSI（末态反应）模型采用：。输入的通量如图 \ref{fig:atmos-e}、图 \ref{fig:atmos-mu} 所示
+本研究采用 GENIE v3.04.0 进行中微子-核素反应的模拟，GENIE 可以计算各味道中微子与各核素反应的各通道截面，并可以采样通量和截面模拟中微子-核素反应。本研究计算截面采用的 tune 为 G18\_02b\_00\_000，tune 定义了各过程采用的模型，G18 这意味着（待补充）。名称中的 b 表示 FSI（末态反应）模型采用：（待补充）。输入的通量如图 \ref{fig:atmos-e}、图 \ref{fig:atmos-mu} 所示
 
-表 \ref{tab:genie-evt} 展示了 GENIE 模拟 $\nu_e + \ce{{}^{16} O}$ 的随机一个事例，可以看到，该事例采样的中微子能量为 $E_{\nu} = \SI{}{\MeV}$，发生 CC 散射
+表 \ref{tab:genie-evt} 展示了 GENIE 模拟 $\nu_e + \ce{{}^{16} O}$ 的随机一个事例，可以看到，该事例采样的中微子能量为 $E_{\nu} = \SI{269}{\MeV}$，发生 CC 散射
 
 \begin{table}[!htb]
     \centering
     \caption{GENIE 模拟 $\nu_e + \ce{{}^{16} O}$ 的一个事例，中微子能量按 \ref{fig:atmos-e} 采样，该事例中微子能量为 $E_{\nu} = \SI{}{\MeV}$，发生 CC 散射，反应式 $\nu_e + \ce{{}^{16} O} \to \ce{{}^{14} N} + e^- + n + p$}
-    \begin{tabular}{cccccc}
-        粒子序号 & 粒子状态编码 & PDGID & 粒子名称 & 母粒子 1 & 母粒子 2 \\
+    \begin{tabular}{c|c|cc|cc|cc}
+        粒子序号 & 状态编码 & PDGID & 粒子名称 & 母粒子 1 & 母粒子 2 & 子粒子 1 & 子粒子 2 \\
+        \hline
+        0 & 0 & $12$ & $\nu_e$ & -1 & -1 & 4 & 4 \\
+        1 & 0 & $1000080160$ & $\ce{{}^{16} O}$ & -1 & -1 & 2 & 3 \\
+        2 & 11 & $2112$ & neutron & 1 & -1 & 5 & 5 \\
+        3 & 2 & $1000080150$ & $\ce{{}^{15} O}$ & 1 & -1 & 13 & 13 \\
+        4 & 1 & $11$ & $e^-$ & 0 & -1 & -1 & -1 \\
+        5 & 14 & $2212$ & proton & 2 & -1 & 6 & 7 \\
+        6 & 14 & $2212$ & proton & 5 & -1 & 8 & 9 \\
+        7 & 14 & $2212$ & proton & 5 & -1 & 10 & 10 \\
+        8 & 14 & $2212$ & proton & 6 & -1 & 11 & 11 \\
+        9 & 14 & $2112$ & neutron & 2 & -1 & 6 & 7 \\
+        10 & 1 & $2212$ & proton & 7 & -1 & -1 & -1 \\
+        11 & 1 & $2212$ & proton & 8 & -1 & -1 & -1 \\
+        12 & 1 & $2112$ & neutron & 9 & -1 & -1 & -1 \\
+        13 & 15 & $2000000002$ & HadrBlob & 3 & -1 & -1 & -1 \\
     \end{tabular}
     \label{tab:genie-evt}
 \end{table}
 
-可以看到，GENIE 反应末态中不含末态稳定核素。$\nu_e + n \to e^- + p$ 发生后，新产生的质子仍在核内，发生 FSI，从剩余的核中打出另一个中子，核素的剩余部分被 GENIE 标记为末态核残余 / 末态强子残余，需要自行计算其组成
+表中的粒子状态编码：0 表示初态，1 表示稳定末态，2 表示中间态，11 表示靶核子，14 表示核中强子，15 表示末态核残余
+
+可以看到，GENIE 给出的反应末态中不含末态稳定核素。$\nu_e + n \to e^- + p$ 发生后，新产生的质子（序号 5）仍在核内，发生 FSI，从剩余的核中（\ce{{}^{15} O}，序号 3）打出另一个质子和另一个中子（序号 12），核素的剩余部分被 GENIE 标记为末态核残余 / 末态强子残余（状态编码 15，序号 13），GENIE 没有给出它的核子组分，需要自行计算
+
+\cite{cheng_neutral-current_2025} 会统计末态核残余的能动量和成分，并将其导入 TALYS 进行末态核衰变模拟。本研究不进行这一步模拟，而是直接统计末态核核子组分和能动量，将其导入 Geant4，这可能会导致损失一些末态核子
 
 GENIE 模拟得到的结果为 ROOT 格式，我们对其进行转换，形成 HEPEVT 格式产生子，以便后续作为 Geant4 产生子，模拟大气中微子本底
 
@@ -525,7 +544,7 @@ GENIE 模拟得到的结果为 ROOT 格式，我们对其进行转换，形成 H
 
 这一部分主要记录我们在 GENIE 模拟中微子-核素反应、生成 HEPEVT 格式产生子过程中遇到的问题，以及解决方法，问题大多是在与骆文泰的产生子进行对比的过程中发现的。
 
-\paragraph{末态核素不匹配}
+\paragraph{末态核子数异常}
 
 在骆文泰生成的产生子中发现如下反应
 \begin{equation}
@@ -537,7 +556,7 @@ GENIE 模拟得到的结果为 ROOT 格式，我们对其进行转换，形成 H
     \nu_e + \ce{{}^{16} O} \to \ce{{}^{15} O} + e^- + p
 \end{equation}
 
-即 $\nu_e$ 与核中的一个中子发生散射，生成质子和 $e^-$。由上文的讨论可知，我们需要从 GENIE 的模拟结果中提取计算末态产物，而骆文泰在计算末态核素组成的过程中，错误地给 $\nu_e$ CC 反应末态核素质子数多减了 1，造成末态核素计算错误。由于末态核素可能影响后续模拟，我们需要对末态核素进行重新计算。
+即 $\nu_e$ 与核中的一个中子发生散射，生成质子和 $e^-$。由上文的讨论可知，GENIE 不给出稳定的末态核素，我们需要从其模拟结果中提取计算，而骆文泰在计算末态核素组成的过程中，错误地给 $\nu_e$ CC 反应末态核素质子数多减了 1，造成末态核素计算错误。由于末态核素可能影响后续模拟，我们对末态核素进行了重新计算。
 
 \paragraph{可见能量筛选}
 
@@ -546,15 +565,64 @@ GENIE 模拟得到的结果为 ROOT 格式，我们对其进行转换，形成 H
     E_{vis} = E_k (\gamma, e^{\pm}, \mu^{\pm}) + E_k (\pi^{0, \pm}) + 0.1 \times E_k (n, p) + 0.1 \times E_k (\ce{{^A_Z} N})
 \end{equation}
 
-NC 反应末态的中微子在探测器中再发生散射的概率极低，因此我们认为它不在探测器中沉积能量。
+NC 反应末态的中微子在探测器中再发生散射的概率极低，因此我们将其计入可见能量。
 
-图 \ref{fig:nuebar-o16-eknu} 展示经过筛选后的事例，其入射中微子能量分布
+图 \ref{fig:o16nue-eknu} 展示 $\nu_e + \ce{{}^{16} O}$ 经过 $E_{vis} \le \SI{50}{\MeV}$ 筛选后的事例，其入射中微子能量分布，其中图 \ref{fig:o16nue-eknu-lwt} 来自之前骆文泰的产生子，图 \ref{fig:o16nue-eknu-neo} 为新结果
 
-骆文泰在计算可见能量的过程中，错误地加入了 $0.1 \times E_{\nu}$，使得入射中微子能量较高的 NC 过程末态被大量错误丢弃
+\begin{figure}
+    \subfigure[来自之前 $\nu_e + \ce{{}^{16} O}$ 产生子的筛选后中微子能量分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/genie/eknu-lwt.png}
+        \label{fig:o16nue-eknu-lwt}
+    }
+    \subfigure[新生成的 $\nu_e + \ce{{}^{16} O}$ 产生子的筛选后中微子能量分布]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/genie/eknu-neo.png}
+        \label{fig:o16nue-eknu-neo}
+    }
+    \caption{$\nu_e + \ce{{}^{16} O}$ 产生子经过 $E_{vis} \le \SI{50}{\MeV}$ 筛选后的事例，其入射中微子能量分布。\ref{fig:o16nue-eknu-lwt} 来自之前的产生子；\ref{fig:o16nue-eknu-neo} 来自新产生子}
+    \label{fig:o16nue-eknu}
+\end{figure}
 
-这一错误会导致产生子的 NC、CC 末态比例错误；同时，从图 \ref{fig:nuebar-o16-eknu-lwt} 中可以看到，由于 $E_{\nu} > \SI{600}{\MeV}$ 的入射中微子被错误抛弃，之前只将 \SI{1}{\GeV} 以下的中微子输入 GENIE，现在应该扩大这个能量范围，由 GENIE 重新模拟。
+可以明显差异：之前产生子中，筛选后的中微子能谱在 $E_{\nu} = \SI{600}{\MeV}$ 处截断，而新结果则没有这一截断。经调查发现，出现差异的原因在于：骆文泰在计算可见能量的过程中，错误地加入了 $0.1 \times E_{\nu}$，使得入射中微子能量较高的 NC 过程末态被大量错误丢弃
 
-\paragraph{$\pi$ 介子}
+这一错误会导致产生子的 NC、CC 末态比例错误；同时，从图 \ref{fig:o16nue-eknu-lwt} 中可以看到，由于 $E_{\nu} > \SI{600}{\MeV}$ 的入射中微子被错误抛弃，之前只将 \SI{1}{\GeV} 以下的中微子输入 GENIE，现在应该扩大输入的中微子能量上限到 \SI{2}{\MeV}，由 GENIE 重新模拟。
+
+\paragraph{对数能谱}
+
+如图 \ref{fig:atmos-e}、图 \ref{fig:atmos-mu}，我们有能量对数分 bin 的大气中微子通量谱，在低能区有更精细的能量划分和事例率区分。由于模拟大气中微子的能量区间为 $[0.01, 2] \si{\GeV}$，而大气中微子中 $\nu_e$、$\bar{\nu}_e$ 的能量峰值约为 $\SI{0.03}{\GeV}$，非常靠近输入能区的左侧，因此对数能谱可以更好地反应中微子通量情况
+
+而在 GENIE 模拟时，如果以文本文件两列的形式输入能谱，即使文件中的能谱是对数能谱，GENIE 会根据文件中的数值填，自己生成一个等宽能谱；正确的做法是先自己将能谱转换为 ROOT 格式，再传入 GENIE。图 \ref{fig:input-flux} 展示了大气中微子 $\nu_e$ 此前使用的等宽能谱和修改之后的对数能谱
+
+\begin{figure}[!htb]
+    \centering
+    \subfigure[大气中微子 $\nu_e$ 等宽能谱，传入文本文件，GENIE 自动产生]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/genie/input-flux.png}
+    }
+    \subfigure[大气中微子 $\nu_e$ 对数能谱，传入 ROOT 文件]{
+        \includegraphics[width=0.45\linewidth]{figures/sim-recon/genie/input-flux-log.png}
+    }
+    \caption{大气中微子 $\nu_e$ 对数能谱，两种不同方式传入 GENIE}
+    \label{fig:input-flux}
+\end{figure}
+
+\paragraph{零动量核子}
+
+在 GENIE 输出的事例中，存在零动量核子，之前骆文泰的处理方法是抛弃所有存在零动量核子的事例。
+
+根据 \cite{cheng_neutral-current_2025} 中的说法，这类核子本质上是动能无法突破结合能的核子，可以将其视作中间态，将其四动量归入末态强子残余。故我们将保留这类事例，且将零动量核子归入末态强子残余，不将其单列。
+
+\paragraph{末态含 $\pi$ 介子事例}
+
+在检查末态核子数异常问题的过程中，我们发现一类核子数异常的事例，经调查发现这些事例末态包含 $\pi$ 介子的事例，加上介子之后，这类事例的初末态夸克数符合预期，并非异常事例。在 $E_{\nu} < \SI{2}{\GeV}$ 能区下，含介子事例比例非常低，故此类事例无法解释前面提到的核子数异常问题
+
+以下展示了一个入射 $E_{\nu} = \SI{673}{\MeV}$ 的 $\nu_e + \ce{{}^{2} H}$ 末态带介子事例：
+\begin{equation}
+\begin{aligned}
+    \nu_e + & \ce{{}^{2} H} & \to & \ce{{}^{1} H} & + \nu_e + & p & + & \pi^- & \\
+    & uud + udd & & uud & & uud & & \bar{u}d & \\
+\end{aligned}
+\end{equation}
+
+这是 NC 反应，反应前一中子一质子，反应后两质子，核子数发生变化；而反应前 $u = 2 + 1 = 3$，$d = 1 + 2 = 3$，反应后 $u = 2 + 2 - 1 = 3$，$d = 1 + 1 + 1 = 3$，即夸克数守恒，反应无异常
 
 \subsection{Final-state classification}
 在 \ref{sec:atmos-rate} 中，我们计算了不同种类大气中微子的通量，以及它们和探测器内各种核素反应的事例率。现在我们将不同的末态分开统计
